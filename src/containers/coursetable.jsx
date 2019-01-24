@@ -10,16 +10,18 @@ class CourseTable extends Component {
     this.classes = props.classes;
     this.state = {
       courses: ['1', '2', '3', '4'],
-  };
+    };
   
 }
+componentDidMount() {
+  this.props.planner([1,2,3,4]);
+}
 renderCourses(){
-  this.props.planner(this.props);
-  if(this.props.planner){
-    return(<div>{this.props.planner}</div>)
+  if(this.props.plannerCourses){
+    return(<div>{this.props.plannerCourses}</div>)
   }
   else{
-    return(<div>Deufhwefheh</div>);
+    return(<div>Component </div>);
   }
 }
   render() {
@@ -32,8 +34,6 @@ renderCourses(){
 }
 
 const mapStateToProps = state => ({
-    state,
-    message: state.message || null,
     plannerCourses: state.plannerCourses || null
 });
 
