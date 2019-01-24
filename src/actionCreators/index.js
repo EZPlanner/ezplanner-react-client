@@ -26,6 +26,27 @@ export const loginActionCreator = (email, password) => async (dispatch) => {
     }
 }
 
+export const awsPlannerLamdaActionCreator = (courses) => async (dispatch) => {
+    dispatch({
+        type: actions.PLANNER_REQUESTED
+    });
+
+    try {
+        //TODO: Invoke lamda
+        let fillerCourses=['ECE254', 'ECE242', 'ECE155'];
+        dispatch({
+            type: actions.PLANNER_SUCCEEDED,
+            payload: fillerCourses
+        });
+    } catch (error) {
+        console.log(`ERROR IN INVOKING AWS LAMDA: ${error.code} - ${error.message}`);
+        dispatch({
+            type: actions.PLANNER_FAILED,
+            payload:error.message
+        });
+    }
+}
+
 export const registerActionCreator = (email, password) => async (dispatch) =>{
     dispatch({
         type:actions.REGISTER_REQUESTED

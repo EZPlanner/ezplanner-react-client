@@ -7,7 +7,8 @@ export const initialState = {
     isSigningIn: false,
     isSigningOut:false,
     userInfo: null,
-    message: null
+    message: null,
+    plannerCourses: null
 };
 const messageReducer = (state = false, action) => {
     switch (action.type) {
@@ -66,11 +67,24 @@ const userReducer = (state = null, action) => {
     }
 }
 
+const plannerCoursesReducer = (state = null, action) => {
+    switch (action.type) {
+        case actions.PLANNER_REQUESTED:
+        case actions.PLANNER_FAILED:
+            return null;
+        case actions.PLANNER_SUCCEEDED:
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
 export default (history) => combineReducers({
     router: connectRouter(history),
     isSigningIn: isSigningInReducer,
     isSigningOut: isSigningOutReducer,
     userInfo: userReducer,
     isRegistering: isRegisteringReducer,
-    message: messageReducer
+    message: messageReducer,
+    plannerCourses:plannerCoursesReducer
 });

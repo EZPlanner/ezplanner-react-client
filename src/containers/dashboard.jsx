@@ -7,6 +7,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import AppBar from "./appbar";
+import CourseTable from './coursetable';
 
 class Dashboard extends Component {
     constructor(props) {
@@ -45,7 +46,7 @@ class Dashboard extends Component {
                         Courses
                     </Typography>
                     <div className={this.classes.tableContainer}>
-                        {/* <SimpleTable /> */}
+                        <CourseTable/>
                     </div>
                 </main>
             </div>
