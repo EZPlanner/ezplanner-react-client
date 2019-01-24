@@ -30,7 +30,7 @@ class Dashboard extends Component {
                             <Grid container spacing={24}>
                                 <Grid item xs={12} lg={6}>
                                     <Paper className={this.classes.paper}>
-                                        Muje sex chai hai
+                                        Muje chai hai
                                     </Paper>
                                 </Grid>
                             </Grid>
