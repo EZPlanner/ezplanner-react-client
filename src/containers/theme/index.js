@@ -28,6 +28,14 @@ const styles = theme => ({
     alignItems: 'center',
     padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
   },
+  searchPaper: {
+    height:'50%',
+    marginTop: theme.spacing.unit * 8,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
+  },
   avatar: {
     margin: theme.spacing.unit,
     backgroundColor: theme.palette.secondary.main,
@@ -167,6 +175,27 @@ export const snackBarStyles = theme => ({
   },
   
 });
+
+export const searchStyle = theme =>({
+  root: {
+    padding: '2px 4px',
+    display: 'flex',
+    alignItems: 'center',
+    width: 400,
+  },
+  input: {
+    marginLeft: 8,
+    flex: 1,
+  },
+  iconButton: {
+    padding: 10,
+  },
+  divider: {
+    width: 1,
+    height: 28,
+    margin: 4,
+  },
+})
 
 export default styles;
 

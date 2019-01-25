@@ -28,14 +28,19 @@ class Login extends Component {
         this.state = {
             email: "",
             password: "",
-            open: false
+            open: (this.props.message!=null)
         };
-      
+    }
+    componentDidMount(){
+        if(this.props.message){
+            this.setState({
+                open:true
+            });
+        }
     }
     
     handleClose = () => {
-
-    this.setState({ open: false });
+        this.setState({ open: false });
     };
 
 
@@ -47,29 +52,32 @@ class Login extends Component {
     };
 
     handleLogIn = () => {
+        this.setState({
+            open:true
+        });
         const { email, password } = this.state;
         this.props.login(email, password);
     };
 
     handleRegister = () => {
+        this.setState({
+                open:true
+            });
         const { email, password } = this.state;
         this.props.register(email, password);
-        this.setState({
-            open:true
-        });
     };
 
     renderSnackBar(){
         return(
             <Snackbar
-            anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-            }}
-            open={this.state.open}
-            autoHideDuration={6000}
-            onClose={this.handleClose}
-        >
+                anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'center',
+                }}
+                open={this.state.open}
+                autoHideDuration={3000}
+                onClose={this.handleClose}
+            >
 
         <SnackbarContent
             className={classNames(this.classes.error, this.className)}
@@ -99,7 +107,7 @@ class Login extends Component {
     render() {
         return (
             <div className="login">
-                <form>
+                
                     <main className={this.classes.main}>
                         <CssBaseline />
                         <Paper className={this.classes.paper}>
@@ -157,7 +165,6 @@ class Login extends Component {
                             
                         </Paper>
                     </main>
-                </form>
                 {this.renderSnackBar()}
             </div>
         );
@@ -165,9 +172,6 @@ class Login extends Component {
 }
 
 const mapStateToProps = state => ({
-    userEmail: (state.userInfo && state.userInfo.email) || null,
-    isLoggedIn: !!state.userInfo,
-    loginInProgress: state.isSigningIn,
     message: state.message
 });
 

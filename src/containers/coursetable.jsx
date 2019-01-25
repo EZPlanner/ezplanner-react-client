@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 
 import Paper from '@material-ui/core/Paper';
-import { awsPlannerLamdaActionCreator } from "../actionCreators";
+
 
 import { connect } from "react-redux";
 import MuiVirtualizedTable from './MuiVirtualizedTable';
@@ -36,35 +36,35 @@ MuiVirtualizedTable.defaultProps = {
   rowHeight: 56,
 };
 
-function createData(id,dessert, calories, fat, carbs, protein) {
-  id += 1;
-  return { id, dessert, calories, fat, carbs, protein };
-}
 
-class ReactVirtualizedTable extends Component{
-  componentDidMount(){
 
-    for (let i = 0; i < 200; i += 1) {
-      var randomSelection = [i];
-      randomSelection.push(...(this.data[Math.floor(Math.random() * this.data.length)]));
-      this.rows.push(createData(...randomSelection));
-    }
-  }
-  constructor(props){
+class CourseTable extends Component{
+ 
+  
+  constructor(props){  
     super(props);
-    // Dummy data
-    this.data = [
-      ['Frozen yoghurt', 159, 6.0, 24, 4.0],
-      ['Ice cream sandwich', 237, 9.0, 37, 4.3],
-      ['Eclair', 262, 16.0, 24, 6.0],
-      ['Cupcake', 305, 3.7, 67, 4.3],
-      ['Gingerbread', 356, 16.0, 49, 3.9],
-    ];
-
     this.rows = [];
+    
+  }
+  
+  updateTable(){
+    console.log(this.props.data);
+    if(this.props.data!=null){
+      for (let i = 0; i < (this.props.data.length); i += 1) {
+        this.rows.push({
+          id:i,
+          courseCode:this.props.data[i][0],
+          courseTittle:this.props.data[i][1],
+          link:this.props.data[i][2],
+        });
+      }
+    }
+    
   }
   render(){
     return (
+      <div>
+        {this.updateTable()}
       <Paper style={{ height: 400, width: '100%' }}>
         <WrappedVirtualizedTable
           rowCount={this.rows.length}
@@ -72,56 +72,46 @@ class ReactVirtualizedTable extends Component{
           onRowClick={event => console.log(event)}
           columns={[
             {
+              
               width: 200,
-              flexGrow: 1.0,
-              label: 'Dessert',
-              dataKey: 'dessert',
+              label: 'Course Code',
+              dataKey: 'courseCode',
+              
             },
             {
-              width: 120,
-              label: 'Calories (g)',
-              dataKey: 'calories',
-              numeric: true,
+              width: 200, 
+              flexGrow: 0.5,
+              label: 'Course Tittle',
+              dataKey: 'courseTittle',
             },
+            
             {
-              width: 120,
-              label: 'Fat (g)',
-              dataKey: 'fat',
-              numeric: true,
+              flexGrow: 0.5,
+              width: 200,
+              label: 'Link',
+              dataKey: 'link',
             },
-            {
-              width: 120,
-              label: 'Carbs (g)',
-              dataKey: 'carbs',
-              numeric: true,
-            },
-            {
-              width: 120,
-              label: 'Protein (g)',
-              dataKey: 'protein',
-              numeric: true,
-            },
+            
           ]}
         />
       </Paper>
+      </div>
     );
   }
   }
   
 
 
-
-const mapDispatchToProps = dispatch => ({
-planner: (courses) => {
-    dispatch(awsPlannerLamdaActionCreator(courses));
-}
+  const mapStateToProps = state => ({
+    data:state.plannerCourses||null,
 });
+
 
 export default withStyles(styles)(
   connect(
-      null,
-      mapDispatchToProps
-  )(ReactVirtualizedTable)
+      mapStateToProps,
+      null
+  )(CourseTable)
 );
 
 

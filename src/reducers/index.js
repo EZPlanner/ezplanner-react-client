@@ -13,8 +13,12 @@ export const initialState = {
 const messageReducer = (state = false, action) => {
     switch (action.type) {
         case actions.LOGIN_FAILED: 
+            return action.payload||null;
         case actions.LOGOUT_FAILED:
+            return action.payload||null;
         case actions.REGISTER_FAILED:
+            return action.payload||null;
+        case actions.PLANNER_FAILED:
             return action.payload||null;
         default:
             return null;
@@ -38,6 +42,7 @@ const isSigningInReducer = (state = false, action) => {
         case actions.LOGIN_REQUESTED:
             return true;
         case actions.LOGIN_SUCCEEDED:
+            return false;
         case actions.LOGIN_FAILED:
             return false;
         default:
@@ -70,6 +75,7 @@ const userReducer = (state = null, action) => {
 const plannerCoursesReducer = (state = null, action) => {
     switch (action.type) {
         case actions.PLANNER_REQUESTED:
+            return null; 
         case actions.PLANNER_FAILED:
             return null;
         case actions.PLANNER_SUCCEEDED:

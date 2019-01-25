@@ -8,11 +8,18 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import AppBar from "./appbar";
 import CourseTable from './coursetable';
+import Button from "@material-ui/core/Button";
+import { awsPlannerLamdaActionCreator } from "../actionCreators";
+import Search from './search';
 
 class Dashboard extends Component {
     constructor(props) {
         super(props);
         this.classes = props.classes;
+    }
+    generatePlannerCourses=()=>{
+        this.props.planner(['lorem ipsum'],['lorem ipsum2'],['lorem ipsum3']);
+        this.forceUpdate();
     }
 
     render() {
@@ -24,15 +31,40 @@ class Dashboard extends Component {
                 <main className={this.classes.content}>
                     <div className={this.classes.appBarSpacer} />
                     <Typography variant="h4" gutterBottom component="h2">
-                        {`HELLO ${this.props.userEmail}!!!!`}
+                        <Typography
+                        component="h1"
+                        variant="h6"
+                        color="inherit"
+                        noWrap
+                        align="center"
+                        >
+                            {`Welcome back ${this.props.userEmail}!`}
+                        </Typography>
+                        
 
                         <div className={this.classes.root}>
                             <Grid container spacing={24}>
-                                <Grid item xs={12} lg={6}>
-                                    <Paper className={this.classes.paper}>
-                                        Muje chai hai
+                                <Grid item xs={12} lg={3}/>
+                                
+                                <Grid item xs={12} lg={3}>
+                                    <Paper className={this.classes.searchPaper}>
+                                    <Button
+                                    fullWidth
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={this.generatePlannerCourses}
+                                >
+                                    Generate Dummy Data
+                                </Button>
                                     </Paper>
                                 </Grid>
+                                <Grid item xs={12} lg={3}>
+                                    <Paper className={this.classes.searchPaper}>
+                                    <Search/>
+                                    </Paper>
+                                </Grid>
+
+                                <Grid item xs={12} lg={3}/>
                             </Grid>
                         </div>
                     </Typography>
@@ -40,7 +72,6 @@ class Dashboard extends Component {
                         component="div"
                         className={this.classes.chartContainer}
                     >
-                        {/* <SimpleLineChart /> */}
                     </Typography>
                     <Typography variant="h4" gutterBottom component="h2">
                         Courses
@@ -59,10 +90,15 @@ const mapStateToProps = state => ({
     userEmail: (state.userInfo && state.userInfo.email) || null,
     message: state.message || null
 });
+const mapDispatchToProps = dispatch =>({
+    planner: (courses) => {
+        dispatch(awsPlannerLamdaActionCreator(courses));
+    },
+});
 
 export default withStyles(styles)(
     connect(
         mapStateToProps,
-        null
+        mapDispatchToProps
     )(Dashboard)
 );

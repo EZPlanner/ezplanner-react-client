@@ -19,13 +19,6 @@ class Appbar extends Component {
             open: false
         };
     }
-    handleDrawerOpen = () => {
-        this.setState({ open: true });
-    };
-
-    handleDrawerClose = () => {
-        this.setState({ open: false });
-    };
     handleLogOut = () => {
         console.log("test");
         this.props.logout();
@@ -51,17 +44,18 @@ class Appbar extends Component {
                             noWrap
                             className={this.classes.title}
                         >
-                            Dashboard
+                            EZPlanner
                         </Typography>
-                        <IconButton color="inherit" onClick={this.handleLogOut}>
-                            <Typography
+                        <Typography
                                 component="h1"
                                 variant="h6"
                                 color="inherit"
                                 noWrap
                             >
                                 Logout
-                            </Typography>
+                        </Typography>
+                        <IconButton color="inherit" onClick={this.handleLogOut}>
+                            
                             <Badge badgeContent={0} color="secondary">
                                 <ExitToApp />
                             </Badge>

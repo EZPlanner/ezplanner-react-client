@@ -33,7 +33,13 @@ export const awsPlannerLamdaActionCreator = (courses) => async (dispatch) => {
 
     try {
         //TODO: Invoke lamda
-        let fillerCourses=['ECE254', 'ECE242', 'ECE155'];
+        
+        let fillerCourses=[
+            ['ECE254', 'Operating Systems and Systems Programming', 'https://uwflow.com/course/ece254'],
+            ['ECE290', 'Engineering Profession, Ethics, and Law', 'https://uwflow.com/course/ece290'],
+            ['ECE316', 'Probability Theory and Statistics', 'https://uwflow.com/course/ece316'],
+            ['ECE309', 'Introduction to Thermodynamics and Heat Transfer', 'https://uwflow.com/course/ece309'],
+        ];
         dispatch({
             type: actions.PLANNER_SUCCEEDED,
             payload: fillerCourses
