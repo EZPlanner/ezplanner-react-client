@@ -8,7 +8,8 @@ export const initialState = {
     isSigningOut:false,
     userInfo: null,
     message: null,
-    plannerCourses: null
+    plannerCourses: null,
+    coursesInput:[],
 };
 const messageReducer = (state = false, action) => {
     switch (action.type) {
@@ -84,6 +85,14 @@ const plannerCoursesReducer = (state = null, action) => {
             return state;
     }
 }
+const coursesInputReducer = (state = null, action) => {
+    switch (action.type) {
+        case actions.UPDATE_COURSE_INPUTS:
+            return action.payload;
+        default:
+            return state;
+    }
+}
 
 export default (history) => combineReducers({
     router: connectRouter(history),
@@ -92,5 +101,6 @@ export default (history) => combineReducers({
     userInfo: userReducer,
     isRegistering: isRegisteringReducer,
     message: messageReducer,
-    plannerCourses:plannerCoursesReducer
+    plannerCourses:plannerCoursesReducer,
+    coursesInput: coursesInputReducer
 });

@@ -48,7 +48,6 @@ class CourseTable extends Component{
   }
   
   updateTable(){
-    console.log(this.props.data);
     if(this.props.data!=null){
       for (let i = 0; i < (this.props.data.length); i += 1) {
         this.rows.push({

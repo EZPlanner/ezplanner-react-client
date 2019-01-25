@@ -11,11 +11,13 @@ import CourseTable from './coursetable';
 import Button from "@material-ui/core/Button";
 import { awsPlannerLamdaActionCreator } from "../actionCreators";
 import Search from './search';
+import CourseChips from './CourseChips';
 
 class Dashboard extends Component {
     constructor(props) {
         super(props);
         this.classes = props.classes;
+        
     }
     generatePlannerCourses=()=>{
         this.props.planner(['lorem ipsum'],['lorem ipsum2'],['lorem ipsum3']);
@@ -31,15 +33,11 @@ class Dashboard extends Component {
                 <main className={this.classes.content}>
                     <div className={this.classes.appBarSpacer} />
                     <Typography variant="h4" gutterBottom component="h2">
-                        <Typography
-                        component="h1"
-                        variant="h6"
-                        color="inherit"
-                        noWrap
-                        align="center"
-                        >
-                            {`Welcome back ${this.props.userEmail}!`}
-                        </Typography>
+                        <div>
+                        {`Welcome back ${this.props.userEmail}!`}
+                        </div>
+                            
+                        
                         
 
                         <div className={this.classes.root}>
@@ -65,6 +63,13 @@ class Dashboard extends Component {
                                 </Grid>
 
                                 <Grid item xs={12} lg={3}/>
+                                <Grid item xs={12} lg={3}/>
+
+                                <Grid item xs={12} lg={6}>
+                                <Grid item xs={12} lg={3}/>
+                                <CourseChips/>
+                                </Grid>
+                                
                             </Grid>
                         </div>
                     </Typography>

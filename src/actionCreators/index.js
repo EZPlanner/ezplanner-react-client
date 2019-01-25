@@ -94,3 +94,18 @@ export const loginSuccessfulActionCreator = payload => ({
     type: actions.LOGIN_SUCCEEDED,
     payload
 })
+
+export const updateCoursesActionCreator = (courses, course) => (dispatch) => {
+    if(course!=null){
+        let courseToAdd={
+            key: courses.length||0,
+            label: course
+        }
+        courses.push(courseToAdd);
+    }
+    dispatch({
+        type: actions.UPDATE_COURSE_INPUTS,
+        payload: courses
+    });
+
+}
