@@ -14,6 +14,9 @@ import Search from './search';
 import CourseChips from './CourseChips';
 import {Redirect} from 'react-router-dom';
 import {withRouter} from 'react-router-dom'
+import ReactGA from 'react-ga';
+ReactGA.initialize('UA-133316416-1');
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 class Dashboard extends Component {
     constructor(props) {
