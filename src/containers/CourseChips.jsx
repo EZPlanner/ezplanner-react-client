@@ -6,7 +6,7 @@ import Paper from '@material-ui/core/Paper';
 import TagFacesIcon from '@material-ui/icons/TagFaces';
 import { connect } from "react-redux";
 import { updateCoursesActionCreator} from "../actionCreators";
-import chipStyles from './theme';
+import chipStyles from './theme'
 
 
 class CourseChips extends Component {
@@ -24,14 +24,13 @@ class CourseChips extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <Paper className={classes.root}>
-        {this.renderChips}
+      <Paper className={classes.chipPaper}>
         {this.props.chipData.map(data => {
           let icon = null;
-            console.log("Chips"+data)
-          if (data.label === 'React') {
-            icon = <TagFacesIcon />;
-          }
+          //   console.log("Chips"+data)
+          // if (data.label === 'React') {
+          //   icon = <TagFacesIcon />;
+          // }
 
           return (
             <Chip
