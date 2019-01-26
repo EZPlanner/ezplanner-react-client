@@ -12,12 +12,21 @@ import Button from "@material-ui/core/Button";
 import { awsPlannerLamdaActionCreator } from "../actionCreators";
 import Search from './search';
 import CourseChips from './CourseChips';
-import { push } from 'connected-react-router';
+import {Redirect} from 'react-router-dom';
+import {withRouter} from 'react-router-dom'
 
 class Dashboard extends Component {
     constructor(props) {
         super(props);
         this.classes = props.classes;
+    }
+    componentWillMount(){
+        console.log(1)
+        if(this.props.userEmail==null){
+                console.log(2)
+                return <Redirect to="/" push />
+              
+        }
     }
     
     generatePlannerCourses=()=>{
@@ -37,14 +46,9 @@ class Dashboard extends Component {
                         <div>
                         {`Welcome back ${this.props.userEmail}!`}
                         </div>
-                            
-                        
-                        
-
                         <div className={this.classes.root}>
                             <Grid container spacing={24}>
                                 <Grid item xs={12} lg={3}/>
-                                
                                 <Grid item xs={12} lg={3}>
                                     <Paper className={this.classes.searchPaper}>
                                     <Button
@@ -52,24 +56,23 @@ class Dashboard extends Component {
                                     variant="contained"
                                     color="primary"
                                     onClick={this.generatePlannerCourses}
-                                >
-                                    Generate Dummy Data
-                                </Button>
+                                    >
+                                        Generate Dummy Data
+                                    </Button>
                                     </Paper>
                                 </Grid>
                                 <Grid item xs={12} lg={3}>
-                                    <Paper className={this.classes.searchPaper}>
+                                <Paper className={this.classes.searchPaper}>
                                     <Search/>
-                                    </Paper>
+                                </Paper>
                                 </Grid>
-
                                 <Grid item xs={12} lg={3}/>
+                                
                                 <Grid item xs={12} lg={3}/>
-
                                 <Grid item xs={12} lg={6}>
-                                <Grid item xs={12} lg={3}/>
-                                <CourseChips/>
+                                    <CourseChips/>
                                 </Grid>
+                                <Grid item xs={12} lg={3}/>
                                 
                             </Grid>
                         </div>
@@ -103,8 +106,9 @@ const mapDispatchToProps = dispatch =>({
 });
 
 export default withStyles(styles)(
+    withRouter(
     connect(
         mapStateToProps,
         mapDispatchToProps
-    )(Dashboard)
+    )(Dashboard))
 );

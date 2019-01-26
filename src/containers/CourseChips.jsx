@@ -6,18 +6,8 @@ import Paper from '@material-ui/core/Paper';
 import TagFacesIcon from '@material-ui/icons/TagFaces';
 import { connect } from "react-redux";
 import { updateCoursesActionCreator} from "../actionCreators";
+import chipStyles from './theme';
 
-const styles = theme => ({
-  root: {
-    display: 'flex',
-    justifyContent: 'center',
-    flexWrap: 'wrap',
-    padding: theme.spacing.unit / 2,
-  },
-  chip: {
-    margin: theme.spacing.unit / 2,
-  },
-});
 
 class CourseChips extends Component {
 
@@ -72,7 +62,7 @@ const mapDispatchToProps = dispatch =>({
     },
 });
 
-export default withStyles(styles)(
+export default withStyles(chipStyles)(
     connect(
         mapStateToProps,
         mapDispatchToProps

@@ -195,7 +195,19 @@ export const searchStyle = theme =>({
     height: 28,
     margin: 4,
   },
-})
+});
+
+export const chipStyles = theme => ({
+  root: {
+    display: 'flex',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    padding: theme.spacing.unit / 2,
+  },
+  chip: {
+    margin: theme.spacing.unit / 2,
+  },
+});
 
 export default styles;
 
