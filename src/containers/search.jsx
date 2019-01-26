@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
+// import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
@@ -45,7 +45,8 @@ class Search extends React.Component{
   render(){
     console.log(this.props.courses)
     return (
-      <Paper className={this.classes.root} elevation={1}>
+      
+      <div className={this.classes.root}>
         <InputBase 
           className={this.classes.input} 
           value={this.state.course||""}
@@ -57,7 +58,8 @@ class Search extends React.Component{
         <IconButton color="primary" className={this.classes.iconButton} aria-label="Enter" onClick={this.handleSubmit}>
           <Enter />
         </IconButton>
-      </Paper>
+        </div>
+      
     );
   }
 }

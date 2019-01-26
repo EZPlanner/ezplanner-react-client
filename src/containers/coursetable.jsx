@@ -97,9 +97,9 @@ class CourseTable extends Component{
         />
         
       </Paper>
-      <IconButton>
+      {/* <IconButton>
           <Download/>
-        </IconButton>
+      </IconButton> */}
       </div>
     );
   }

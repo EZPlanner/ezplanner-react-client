@@ -12,13 +12,14 @@ import Button from "@material-ui/core/Button";
 import { awsPlannerLamdaActionCreator } from "../actionCreators";
 import Search from './search';
 import CourseChips from './CourseChips';
+import { push } from 'connected-react-router';
 
 class Dashboard extends Component {
     constructor(props) {
         super(props);
         this.classes = props.classes;
-        
     }
+    
     generatePlannerCourses=()=>{
         this.props.planner(['lorem ipsum'],['lorem ipsum2'],['lorem ipsum3']);
         this.forceUpdate();
