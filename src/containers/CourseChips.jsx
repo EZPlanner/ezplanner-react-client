@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
@@ -19,20 +19,7 @@ const styles = theme => ({
   },
 });
 
-class CourseChips extends React.Component {
-    constructor(props){
-        super(props);
-        this.classes = props.classes;
-    }
-    componentWillReceiveProps(nextProps){
-        if (this.props.post.category !== nextProps.post.category){
-          this.setState({
-            title: nextProps.post.title,
-            body: nextProps.post.body,
-            category: nextProps.post.category,
-          })
-        }      
-      }
+class CourseChips extends Component {
 
   
   handleDelete = data => () => {
@@ -42,33 +29,31 @@ class CourseChips extends React.Component {
       this.props.updateCourses(courses,null)
 
   };
-  renderChips=()=>{
-    return(
-        this.props.chipData.map(data => {
-            let icon = null;
-              console.log("Chips"+data)
-            if (data.label === 'React') {
-              icon = <TagFacesIcon />;
-            }
   
-            return (
-              <Chip
-                key={data.key}
-                icon={icon}
-                label={data.label}
-                onDelete={this.handleDelete(data)}
-                className={this.classes.chip}
-              />
-            );
-          })
-    );
-  };
 
   render() {
-    
+    const { classes } = this.props;
     return (
-      <Paper className={this.classes.root}>
+      <Paper className={classes.root}>
         {this.renderChips}
+        {this.props.chipData.map(data => {
+          let icon = null;
+            console.log("Chips"+data)
+          if (data.label === 'React') {
+            icon = <TagFacesIcon />;
+          }
+
+          return (
+            <Chip
+              key={data.key}
+              icon={icon}
+              label={data.label}
+              onDelete={this.handleDelete(data)}
+              className={classes.chip}
+              color="primary"
+            />
+          );
+        })}
       </Paper>
     );
   }

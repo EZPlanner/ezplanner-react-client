@@ -26,21 +26,33 @@ class Search extends React.Component{
       [event.target.id]: event.target.value
     });
   }
+  handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      this.handleSubmit()
+    }
+  }
+
 
   handleSubmit=()=>{
     if(this.state.course!=null && this.state.course!==""){
       this.props.updateCourses(this.props.courses,this.state.course)
-      console.log(this.props.courses)
     }
     this.setState({
       course:null
     })
-    
   }
+
   render(){
+    console.log(this.props.courses)
     return (
       <Paper className={this.classes.root} elevation={1}>
-        <InputBase className={this.classes.input} value={this.state.course||""}placeholder="Start typing courses" onChange={this.handleChange} id ="course" />
+        <InputBase 
+          className={this.classes.input} 
+          value={this.state.course||""}
+          placeholder="Start typing courses" 
+          onChange={this.handleChange} 
+          id ="course"
+          onKeyPress={this.handleKeyPress} />
         <Divider className={this.classes.divider} />
         <IconButton color="primary" className={this.classes.iconButton} aria-label="Enter" onClick={this.handleSubmit}>
           <Enter />

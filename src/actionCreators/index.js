@@ -101,7 +101,7 @@ export const updateCoursesActionCreator = (courses, course) => (dispatch) => {
             key: courses.length||0,
             label: course
         }
-        courses.push(courseToAdd);
+        courses = [...courses, courseToAdd];
     }
     dispatch({
         type: actions.UPDATE_COURSE_INPUTS,
