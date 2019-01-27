@@ -19,6 +19,9 @@ import classNames from "classnames";
 import ErrorIcon from '@material-ui/icons/Error';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
+import ReactGA from 'react-ga';
+ReactGA.initialize('UA-133316416-1');
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 
 class Login extends Component {
