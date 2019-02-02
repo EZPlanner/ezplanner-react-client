@@ -21,9 +21,7 @@ class Appbar extends Component {
       open: false
     };
   }
-  handleLogOut() {
-    this.props.logout();
-  }
+
   render() {
     return (
       <div>
@@ -50,7 +48,7 @@ class Appbar extends Component {
             <Typography component="h1" variant="h6" color="inherit" noWrap>
               Logout
             </Typography>
-            <IconButton color="inherit" onClick={this.handleLogOut}>
+            <IconButton color="inherit" onClick={this.props.logout}>
               <Badge badgeContent={0} color="secondary">
                 <ExitToApp />
               </Badge>
