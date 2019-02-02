@@ -11,16 +11,17 @@ import IconButton from '@material-ui/core/IconButton';
 import classNames from 'classnames';
 import { logoutActionCreator } from '../actionCreators';
 
+// TODO(atul): Fix the below eslint disables
 class Appbar extends Component {
   constructor(props) {
     super(props);
-    this.classes = props.classes;
+    this.classes = props.classes; // eslint-disable-line
     this.state = {
       open: false
     };
   }
   handleLogOut() {
-    this.props.logout();
+    this.props.logout(); // eslint-disable-line
   }
   render() {
     return (
@@ -65,7 +66,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(logoutActionCreator());
   }
 });
-
+// Test comment:
 export default withStyles(styles)(
   connect(
     null,
