@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
 import Paper from '@material-ui/core/Paper';
-import TagFacesIcon from '@material-ui/icons/TagFaces';
 import { connect } from 'react-redux';
 import { updateCoursesActionCreator } from '../actionCreators';
 import chipStyles from './theme';
@@ -44,8 +43,11 @@ class CourseChips extends Component {
 }
 
 CourseChips.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  updateCourses: PropTypes.func.isRequired,
+  chipData: PropTypes.array
 };
+
 const mapStateToProps = state => ({
   chipData: state.coursesInput || null
 });
