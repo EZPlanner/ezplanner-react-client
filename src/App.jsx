@@ -4,6 +4,7 @@ import { Route, withRouter } from 'react-router-dom';
 import Login from './containers/login';
 import Dashboard from './containers/dashboard';
 import firebase from './services/firebase';
+// import Spinner from './containers/spinner';
 import { connect } from 'react-redux';
 import { loginSuccessfulActionCreator } from './actionCreators';
 import styles from './containers/theme';
