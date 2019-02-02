@@ -46,10 +46,6 @@ App.propTypes = {
   login: PropTypes.func
 };
 
-const mapStateToProps = state => ({
-  state
-});
-
 const mapDispatchToProps = dispatch => ({
   login: user => dispatch(loginSuccessfulActionCreator(user))
 });
@@ -57,7 +53,7 @@ const mapDispatchToProps = dispatch => ({
 export default withStyles(styles)(
   withRouter(
     connect(
-      mapStateToProps,
+      null,
       mapDispatchToProps
     )(App)
   )
