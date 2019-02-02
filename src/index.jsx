@@ -13,40 +13,34 @@ import { routeActionEnhancer } from './actionEnhancers';
 const history = createHistory();
 
 const enhancers = [];
-const middleware = [
-    routerMiddleware(history),
-    routeActionEnhancer,
-    thunk
-];
+const middleware = [routerMiddleware(history), routeActionEnhancer, thunk];
 
 if (process.env.NODE_ENV === 'development') {
-    const devToolsExtension = window.__REDUX_DEVTOOLS_EXTENSION__
+  const devToolsExtension = window.__REDUX_DEVTOOLS_EXTENSION__;
 
-    if (typeof devToolsExtension === 'function') {
-        enhancers.push(devToolsExtension())
-    }
+  if (typeof devToolsExtension === 'function') {
+    enhancers.push(devToolsExtension());
+  }
 }
 
 const composedEnhancers = compose(
-    applyMiddleware(...middleware),
-    ...enhancers,
+  applyMiddleware(...middleware),
+  ...enhancers
 );
 
 const store = createStore(
-    rootReducer(history),
-    initialState,
-    composedEnhancers
+  rootReducer(history),
+  initialState,
+  composedEnhancers
 );
 
 ReactDOM.render(
-    (
-        <Provider store={store}>
-            <ConnectedRouter history={history}>
-                <App />
-            </ConnectedRouter>
-        </Provider>
-    ),
-    document.getElementById('root')
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <App />
+    </ConnectedRouter>
+  </Provider>,
+  document.getElementById('root')
 );
 
 serviceWorker.unregister();

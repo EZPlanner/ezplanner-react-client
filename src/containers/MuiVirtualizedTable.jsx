@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
@@ -7,93 +7,111 @@ import TableSortLabel from '@material-ui/core/TableSortLabel';
 import { AutoSizer, Column, SortDirection, Table } from 'react-virtualized';
 import styles from './theme';
 
-
-
 class MuiVirtualizedTable extends React.PureComponent {
-    getRowClassName = ({ index }) => {
-      const { classes, rowClassName, onRowClick } = this.props;
-  
-      return classNames(classes.tableRow, classes.flexContainer, rowClassName, {
-        [classes.tableRowHover]: index !== -1 && onRowClick != null,
-      });
-    };
-  
-    cellRenderer = ({ cellData, dataKey, columnIndex = null }) => {
-      const { columns, classes, rowHeight, onRowClick } = this.props;
-      if(dataKey == 'link'){
-        return (
-          <TableCell
-            component="div"
-            className={classNames(classes.tableCell, classes.flexContainer, {
-              [classes.noClick]: onRowClick == null,
-            })}
-            variant="body"
-            style={{ height: rowHeight }}
-            align={(columnIndex != null && columns[columnIndex].numeric) || false ? 'right' : 'left'}
-          >
-            <a href={cellData} target="_blank">{cellData}</a>
-          </TableCell>
-        );
-      }else{
-        return (
-          <TableCell
-            component="div"
-            className={classNames(classes.tableCell, classes.flexContainer, {
-              [classes.noClick]: onRowClick == null,
-            })}
-            variant="body"
-            style={{ height: rowHeight }}
-            align={(columnIndex != null && columns[columnIndex].numeric) || false ? 'right' : 'left'}
-          >
-            {cellData}
-          </TableCell>
-        );
-      }
-      
-    };
-  
-    headerRenderer = ({ label, columnIndex, dataKey, sortBy, sortDirection }) => {
-      const { headerHeight, columns, classes, sort } = this.props;
-      const direction = {
-        [SortDirection.ASC]: 'asc',
-        [SortDirection.DESC]: 'desc',
-      };
-  
-      const inner =
-        !columns[columnIndex].disableSort && sort != null ? (
-          <TableSortLabel active={dataKey === sortBy} direction={direction[sortDirection]}>
-            {label}
-          </TableSortLabel>
-        ) : (
-          label
-        );
-  
+  getRowClassName = ({ index }) => {
+    const { classes, rowClassName, onRowClick } = this.props;
+
+    return classNames(classes.tableRow, classes.flexContainer, rowClassName, {
+      [classes.tableRowHover]: index !== -1 && onRowClick != null
+    });
+  };
+
+  cellRenderer = ({ cellData, dataKey, columnIndex = null }) => {
+    const { columns, classes, rowHeight, onRowClick } = this.props;
+    if (dataKey == 'link') {
       return (
         <TableCell
           component="div"
-          className={classNames(classes.tableCell, classes.flexContainer, classes.noClick)}
-          variant="head"
-          style={{ height: headerHeight }}
-          align={columns[columnIndex].numeric || false ? 'right' : 'left'}
+          className={classNames(classes.tableCell, classes.flexContainer, {
+            [classes.noClick]: onRowClick == null
+          })}
+          variant="body"
+          style={{ height: rowHeight }}
+          align={
+            (columnIndex != null && columns[columnIndex].numeric) || false
+              ? 'right'
+              : 'left'
+          }
         >
-          {inner}
+          <a href={cellData} target="_blank">
+            {cellData}
+          </a>
         </TableCell>
       );
-    };
-  
-    render() {
-      const { classes, columns, ...tableProps } = this.props;
+    } else {
       return (
-        <AutoSizer>
-          {({ height, width }) => (
-            <Table
-              className={classes.table}
-              height={height}
-              width={width}
-              {...tableProps}
-              rowClassName={this.getRowClassName}
-            >
-              {columns.map(({ cellContentRenderer = null, className, dataKey, ...other }, index) => {
+        <TableCell
+          component="div"
+          className={classNames(classes.tableCell, classes.flexContainer, {
+            [classes.noClick]: onRowClick == null
+          })}
+          variant="body"
+          style={{ height: rowHeight }}
+          align={
+            (columnIndex != null && columns[columnIndex].numeric) || false
+              ? 'right'
+              : 'left'
+          }
+        >
+          {cellData}
+        </TableCell>
+      );
+    }
+  };
+
+  headerRenderer = ({ label, columnIndex, dataKey, sortBy, sortDirection }) => {
+    const { headerHeight, columns, classes, sort } = this.props;
+    const direction = {
+      [SortDirection.ASC]: 'asc',
+      [SortDirection.DESC]: 'desc'
+    };
+
+    const inner =
+      !columns[columnIndex].disableSort && sort != null ? (
+        <TableSortLabel
+          active={dataKey === sortBy}
+          direction={direction[sortDirection]}
+        >
+          {label}
+        </TableSortLabel>
+      ) : (
+        label
+      );
+
+    return (
+      <TableCell
+        component="div"
+        className={classNames(
+          classes.tableCell,
+          classes.flexContainer,
+          classes.noClick
+        )}
+        variant="head"
+        style={{ height: headerHeight }}
+        align={columns[columnIndex].numeric || false ? 'right' : 'left'}
+      >
+        {inner}
+      </TableCell>
+    );
+  };
+
+  render() {
+    const { classes, columns, ...tableProps } = this.props;
+    return (
+      <AutoSizer>
+        {({ height, width }) => (
+          <Table
+            className={classes.table}
+            height={height}
+            width={width}
+            {...tableProps}
+            rowClassName={this.getRowClassName}
+          >
+            {columns.map(
+              (
+                { cellContentRenderer = null, className, dataKey, ...other },
+                index
+              ) => {
                 let renderer;
                 if (cellContentRenderer != null) {
                   renderer = (cellRendererProps, dataKey) =>
@@ -105,14 +123,14 @@ class MuiVirtualizedTable extends React.PureComponent {
                 } else {
                   renderer = this.cellRenderer;
                 }
-  
+
                 return (
                   <Column
                     key={dataKey}
                     headerRenderer={headerProps =>
                       this.headerRenderer({
                         ...headerProps,
-                        columnIndex: index,
+                        columnIndex: index
                       })
                     }
                     className={classNames(classes.flexContainer, className)}
@@ -121,15 +139,13 @@ class MuiVirtualizedTable extends React.PureComponent {
                     {...other}
                   />
                 );
-              })}
-            </Table>
-          )}
-        </AutoSizer>
-      );
-    }
+              }
+            )}
+          </Table>
+        )}
+      </AutoSizer>
+    );
   }
+}
 
-  export default withStyles(styles)(
-    (MuiVirtualizedTable)
-  );
-  
+export default withStyles(styles)(MuiVirtualizedTable);
