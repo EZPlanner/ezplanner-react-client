@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import TableCell from '@material-ui/core/TableCell';
@@ -33,9 +33,10 @@ class MuiVirtualizedTable extends React.PureComponent {
               : 'left'
           }
         >
-          <a href={cellData} target="_blank">
-            {cellData}
-          </a>
+          {
+            // TODO(atul): Figure out why cellData was being used here.
+          }
+          <a href={cellData}>{cellData}</a>
         </TableCell>
       );
     } else {
@@ -147,5 +148,16 @@ class MuiVirtualizedTable extends React.PureComponent {
     );
   }
 }
+
+// TODO(atul): Make sure below probs are the right type
+MuiVirtualizedTable.propTypes = {
+  classes: PropTypes.object,
+  rowClassName: PropTypes.string,
+  onRowClick: PropTypes.func,
+  columns: PropTypes.func,
+  rowHeight: PropTypes.number,
+  headerHeight: PropTypes.number,
+  sort: PropTypes.any
+};
 
 export default withStyles(styles)(MuiVirtualizedTable);
