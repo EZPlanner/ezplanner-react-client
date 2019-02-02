@@ -66,7 +66,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(logoutActionCreator());
   }
 });
-// Test comment:
+
 export default withStyles(styles)(
   connect(
     null,
