@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Route, withRouter } from 'react-router-dom';
 import Login from './containers/login';
 import Dashboard from './containers/dashboard';
@@ -39,6 +40,10 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  login: PropTypes.function
+};
 
 const mapStateToProps = state => ({
   state
