@@ -3,8 +3,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import Download from '@material-ui/icons/GetApp';
-import IconButton from '@material-ui/core/IconButton';
 import { connect } from 'react-redux';
 import MuiVirtualizedTable from './MuiVirtualizedTable';
 import styles from './theme';
@@ -89,6 +87,10 @@ class CourseTable extends Component {
     );
   }
 }
+
+CourseTable.propTypes = {
+  data: PropTypes.array
+};
 
 const mapStateToProps = state => ({
   data: state.plannerCourses || null
