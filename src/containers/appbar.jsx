@@ -19,10 +19,9 @@ class Appbar extends Component {
       open: false
     };
   }
-  handleLogOut = () => {
-    console.log('test');
+  handleLogOut() {
     this.props.logout();
-  };
+  }
   render() {
     return (
       <div>
