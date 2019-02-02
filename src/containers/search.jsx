@@ -72,7 +72,10 @@ class Search extends React.Component {
 }
 
 Search.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  planner: PropTypes.func,
+  courses: PropTypes.array,
+  updateCourses: PropTypes.array
 };
 
 const mapStateToProps = state => ({
