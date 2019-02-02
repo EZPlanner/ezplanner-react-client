@@ -4,12 +4,12 @@ import actions from '../actions';
 export const routeActionEnhancer = store => next => action => {
   switch (action.type) {
   case actions.LOGIN_SUCCEEDED:
-    store.dispatch(push('/dashboard'));
     next(action);
+    store.dispatch(push('/dashboard'));
     break;
   case actions.LOGOUT_SUCCEEDED:
-    store.dispatch(push('/'));
     next(action);
+    store.dispatch(push('/'));
     break;
   default:
     next(action);
