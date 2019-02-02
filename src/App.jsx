@@ -12,6 +12,7 @@ import {
   MuiThemeProvider,
   createMuiTheme
 } from '@material-ui/core/styles';
+
 const theme = createMuiTheme({
   typography: {
     useNextVariants: true
@@ -42,7 +43,7 @@ class App extends Component {
 }
 
 App.propTypes = {
-  login: PropTypes.function
+  login: PropTypes.func
 };
 
 const mapStateToProps = state => ({

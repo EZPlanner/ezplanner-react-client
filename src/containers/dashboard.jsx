@@ -12,9 +12,9 @@ import Button from '@material-ui/core/Button';
 import { awsPlannerLamdaActionCreator } from '../actionCreators';
 import Search from './search';
 import CourseChips from './CourseChips';
-import { Redirect } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import ReactGA from 'react-ga';
+import PropTypes from 'prop-types';
 ReactGA.initialize('UA-133316416-1');
 ReactGA.pageview(window.location.pathname + window.location.search);
 
@@ -79,12 +79,21 @@ class Dashboard extends Component {
   }
 }
 
+Dashboard.propTypes = {
+  classes: PropTypes.object,
+  courseInput: PropTypes.array,
+  message: PropTypes.string,
+  userEmail: PropTypes.string,
+  planner: PropTypes.func
+};
+
 const mapStateToProps = state => ({
   state,
   userEmail: (state.userInfo && state.userInfo.email) || null,
   message: state.message || null,
   courseInput: state.coursesInput || null
 });
+
 const mapDispatchToProps = dispatch => ({
   planner: courses => {
     dispatch(awsPlannerLamdaActionCreator(courses));
