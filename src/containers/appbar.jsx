@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import styles from './theme';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -11,17 +12,17 @@ import IconButton from '@material-ui/core/IconButton';
 import classNames from 'classnames';
 import { logoutActionCreator } from '../actionCreators';
 
-// TODO(atul): Fix the below eslint disables
+// TODO(atul): Change the following component's name so that it doesn't conflict with library
 class Appbar extends Component {
   constructor(props) {
     super(props);
-    this.classes = props.classes; // eslint-disable-line
+    this.classes = props.classes;
     this.state = {
       open: false
     };
   }
   handleLogOut() {
-    this.props.logout(); // eslint-disable-line
+    this.props.logout();
   }
   render() {
     return (
@@ -60,6 +61,11 @@ class Appbar extends Component {
     );
   }
 }
+
+Appbar.propTypes = {
+  classes: PropTypes.object,
+  logout: PropTypes.func
+};
 
 const mapDispatchToProps = dispatch => ({
   logout: () => {
