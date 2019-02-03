@@ -154,7 +154,7 @@ MuiVirtualizedTable.propTypes = {
   classes: PropTypes.object,
   rowClassName: PropTypes.string,
   onRowClick: PropTypes.func,
-  columns: PropTypes.func,
+  columns: PropTypes.array,
   rowHeight: PropTypes.number,
   headerHeight: PropTypes.number,
   sort: PropTypes.any

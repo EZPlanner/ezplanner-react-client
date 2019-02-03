@@ -5,11 +5,8 @@ import { withStyles } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import AppBar from './appbar';
 import CourseTable from './coursetable';
-import Button from '@material-ui/core/Button';
-import { awsPlannerLamdaActionCreator } from '../actionCreators';
 import Search from './search';
 import CourseChips from './CourseChips';
 import { withRouter } from 'react-router-dom';
@@ -31,11 +28,6 @@ class Dashboard extends Component {
     }
   }
 
-  generatePlannerCourses = () => {
-    this.props.planner(this.props.courseInput);
-    this.forceUpdate();
-  };
-
   render() {
     return (
       <div className={this.classes.root}>
@@ -45,21 +37,8 @@ class Dashboard extends Component {
         <main className={this.classes.content}>
           <div className={this.classes.appBarSpacer} />
           <Typography variant="h4" gutterBottom component="h2">
-            <div>{`Welcome back ${this.props.userEmail}!`}</div>
             <div className={this.classes.root}>
               <Grid container spacing={24}>
-                <Grid item xs={12} lg={3}>
-                  <Paper className={this.classes.searchPaper}>
-                    <Button
-                      fullWidth
-                      variant="contained"
-                      color="primary"
-                      onClick={this.generatePlannerCourses}
-                    >
-                      Generate
-                    </Button>
-                  </Paper>
-                </Grid>
                 <Grid item xs={12} lg={12} />
                 <Grid item xs={12} lg={1} />
                 <Grid item xs={12} lg={4}>
@@ -103,9 +82,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  planner: courses => {
-    dispatch(awsPlannerLamdaActionCreator(courses));
-  },
   goHome: () => dispatch(push('/'))
 });
 

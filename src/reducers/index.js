@@ -11,7 +11,7 @@ export const initialState = {
   plannerCourses: null,
   coursesInput: []
 };
-const messageReducer = (state = false, action) => {
+const messageReducer = (_, action) => {
   switch (action.type) {
   case actions.LOGIN_FAILED:
     return action.payload || null;
@@ -87,8 +87,12 @@ const plannerCoursesReducer = (state = null, action) => {
 };
 const coursesInputReducer = (state = null, action) => {
   switch (action.type) {
-  case actions.UPDATE_COURSE_INPUTS:
-    return action.payload;
+  case actions.ADD_COURSE:
+    if ((state || []).includes(action.payload)) return state;
+
+    return [...(state || []), action.payload];
+  case actions.REMOVE_COURSE:
+    return (state || []).filter(course => course !== action.payload);
   default:
     return state;
   }

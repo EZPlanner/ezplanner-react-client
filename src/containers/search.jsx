@@ -7,9 +7,8 @@ import IconButton from '@material-ui/core/IconButton';
 import Enter from '@material-ui/icons/KeyboardArrowRight';
 import { searchStyle } from './theme';
 import { connect } from 'react-redux';
-import { updateCoursesActionCreator } from '../actionCreators';
+import { addCourseActionCreator } from '../actionCreators';
 import { Paper } from '@material-ui/core';
-import { awsPlannerLamdaActionCreator } from '../actionCreators';
 // https://material-ui.com/demos/autocomplete/
 
 class Search extends React.Component {
@@ -20,26 +19,24 @@ class Search extends React.Component {
       course: null
     };
   }
+
   handleChange = event => {
     this.setState({
       [event.target.id]: event.target.value
     });
   };
-  handleKeyPress = async e => {
+
+  handleKeyPress = e => {
     if (e.key === 'Enter') {
-      await this.handleSubmit();
-      this.generatePlannerCourses();
+      this.handleSubmit();
     }
-  };
-  generatePlannerCourses = () => {
-    this.props.planner(this.props.courses);
-    this.forceUpdate();
   };
 
   handleSubmit = () => {
     if (this.state.course != null && this.state.course !== '') {
-      this.props.updateCourses(this.props.courses, this.state.course);
+      this.props.addCourse(this.state.course);
     }
+
     this.setState({
       course: null
     });
@@ -75,25 +72,18 @@ Search.propTypes = {
   classes: PropTypes.object.isRequired,
   planner: PropTypes.func,
   courses: PropTypes.array,
-  updateCourses: PropTypes.array
+  addCourse: PropTypes.func.isRequired
 };
 
-const mapStateToProps = state => ({
-  courses: state.coursesInput || null
-});
-
 const mapDispatchToProps = dispatch => ({
-  updateCourses: (courses, course) => {
-    dispatch(updateCoursesActionCreator(courses, course));
-  },
-  planner: courses => {
-    dispatch(awsPlannerLamdaActionCreator(courses));
+  addCourse: course => {
+    dispatch(addCourseActionCreator(course));
   }
 });
 
 export default withStyles(searchStyle)(
   connect(
-    mapStateToProps,
+    null,
     mapDispatchToProps
   )(Search)
 );
