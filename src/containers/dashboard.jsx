@@ -9,7 +9,7 @@ import Paper from '@material-ui/core/Paper';
 import AppBar from './appbar';
 import CourseTable from './coursetable';
 import Button from '@material-ui/core/Button';
-import { awsPlannerLamdaActionCreator } from '../actionCreators';
+import { plannerActionCreator } from '../actionCreators';
 import Search from './search';
 import CourseChips from './CourseChips';
 import { withRouter } from 'react-router-dom';
@@ -104,7 +104,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   planner: courses => {
-    dispatch(awsPlannerLamdaActionCreator(courses));
+    dispatch(plannerActionCreator(courses));
   },
   goHome: () => dispatch(push('/'))
 });

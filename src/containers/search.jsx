@@ -9,7 +9,7 @@ import { searchStyle } from './theme';
 import { connect } from 'react-redux';
 import { updateCoursesActionCreator } from '../actionCreators';
 import { Paper } from '@material-ui/core';
-import { awsPlannerLamdaActionCreator } from '../actionCreators';
+import { plannerActionCreator } from '../actionCreators';
 // https://material-ui.com/demos/autocomplete/
 
 class Search extends React.Component {
@@ -87,7 +87,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(updateCoursesActionCreator(courses, course));
   },
   planner: courses => {
-    dispatch(awsPlannerLamdaActionCreator(courses));
+    dispatch(plannerActionCreator(courses));
   }
 });
 
