@@ -88,6 +88,8 @@ const plannerCoursesReducer = (state = null, action) => {
 const coursesInputReducer = (state = null, action) => {
   switch (action.type) {
   case actions.ADD_COURSE:
+    if ((state || []).includes(action.payload)) return state;
+
     return [...(state || []), action.payload];
   case actions.REMOVE_COURSE:
     return (state || []).filter(course => course !== action.payload);
