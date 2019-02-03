@@ -75,7 +75,7 @@ Search.propTypes = {
   classes: PropTypes.object.isRequired,
   planner: PropTypes.func,
   courses: PropTypes.array,
-  updateCourses: PropTypes.array
+  updateCourses: PropTypes.func
 };
 
 const mapStateToProps = state => ({
@@ -87,7 +87,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(updateCoursesActionCreator(courses, course));
   },
   planner: courses => {
-    dispatch(plannerActionCreator(courses));
+    dispatch(plannerActionCreator(courses.map(course => course.label)));
   }
 });
 

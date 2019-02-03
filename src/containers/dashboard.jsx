@@ -104,7 +104,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   planner: courses => {
-    dispatch(plannerActionCreator(courses));
+    dispatch(plannerActionCreator(courses.map(course => course.label)));
   },
   goHome: () => dispatch(push('/'))
 });

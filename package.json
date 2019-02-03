@@ -10,6 +10,7 @@
     "firebase": "^5.7.3",
     "history": "^4.7.2",
     "material-ui-icons": "^1.0.0-beta.36",
+    "qs": "^6.6.0",
     "react": "^16.7.0",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.7.0",
