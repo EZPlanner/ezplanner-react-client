@@ -13,6 +13,7 @@ import {
   MuiThemeProvider,
   createMuiTheme
 } from '@material-ui/core/styles';
+import Spinner from './containers/spinner';
 
 const theme = createMuiTheme({
   typography: {
@@ -25,6 +26,8 @@ class App extends Component {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.props.login(user);
+      } else {
+        localStorage.removeItem('ezplanner.expectSignIn');
       }
     });
   }
@@ -34,8 +37,15 @@ class App extends Component {
       <MuiThemeProvider theme={theme}>
         <div className="App">
           <main>
-            <Route exact path="/dashboard" component={Dashboard} />
-            <Route exact path="/" component={Login} />
+            {localStorage.getItem('ezplanner.expectSignIn') &&
+            !this.props.userInfo ? (
+                <Spinner />
+              ) : (
+                <div>
+                  <Route exact path="/dashboard" component={Dashboard} />
+                  <Route exact path="/" component={Login} />
+                </div>
+              )}
           </main>
         </div>
       </MuiThemeProvider>
@@ -44,8 +54,13 @@ class App extends Component {
 }
 
 App.propTypes = {
-  login: PropTypes.func
+  login: PropTypes.func,
+  userInfo: PropTypes.object
 };
+
+const mapStateToProps = state => ({
+  userInfo: state.userInfo
+});
 
 const mapDispatchToProps = dispatch => ({
   login: user => dispatch(loginSuccessfulActionCreator(user))
@@ -54,7 +69,7 @@ const mapDispatchToProps = dispatch => ({
 export default withStyles(styles)(
   withRouter(
     connect(
-      null,
+      mapStateToProps,
       mapDispatchToProps
     )(App)
   )
