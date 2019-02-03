@@ -15,7 +15,7 @@ export const uploadFile = async (file = null, uuid = null) => {
   formData.append('file', file);
 
   return axios({
-    url: 'http://127.0.0.1:5000/api/parser',
+    url: 'https://ezplanner-flask-api.herokuapp.com/api/parser',
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     data: formData,
