@@ -15,6 +15,7 @@ import CourseChips from './CourseChips';
 import { withRouter } from 'react-router-dom';
 import ReactGA from 'react-ga';
 import PropTypes from 'prop-types';
+import { push } from 'connected-react-router';
 ReactGA.initialize('UA-133316416-1');
 ReactGA.pageview(window.location.pathname + window.location.search);
 
@@ -22,6 +23,12 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.classes = props.classes;
+  }
+
+  componentDidMount() {
+    if (!this.props.userEmail) {
+      this.props.goHome();
+    }
   }
 
   generatePlannerCourses = () => {
@@ -84,7 +91,8 @@ Dashboard.propTypes = {
   courseInput: PropTypes.array,
   message: PropTypes.string,
   userEmail: PropTypes.string,
-  planner: PropTypes.func
+  planner: PropTypes.func,
+  goHome: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -97,7 +105,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   planner: courses => {
     dispatch(awsPlannerLamdaActionCreator(courses));
-  }
+  },
+  goHome: () => dispatch(push('/'))
 });
 
 export default withStyles(styles)(

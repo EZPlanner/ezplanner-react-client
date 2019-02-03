@@ -18,7 +18,7 @@ class MuiVirtualizedTable extends React.PureComponent {
 
   cellRenderer = ({ cellData, dataKey, columnIndex = null }) => {
     const { columns, classes, rowHeight, onRowClick } = this.props;
-    if (dataKey == 'link') {
+    if (dataKey === 'link') {
       return (
         <TableCell
           component="div"
