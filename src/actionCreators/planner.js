@@ -21,16 +21,26 @@ export const plannerActionCreator = coursesTaken => async dispatch => {
   }
 };
 
-export const updateCoursesActionCreator = (courses, course) => dispatch => {
-  if (course != null) {
-    let courseToAdd = {
-      key: courses.length || 0,
-      label: course
-    };
-    courses = [...courses, courseToAdd];
-  }
-  dispatch({
-    type: actions.UPDATE_COURSE_INPUTS,
-    payload: courses
-  });
-};
+export const addCourseActionCreator = course => ({
+  type: actions.ADD_COURSE,
+  payload: course
+});
+
+export const removeCourseActionCreator = course => ({
+  type: actions.REMOVE_COURSE,
+  payload: course
+});
+
+// export const updateCoursesActionCreator = (courses, course) => dispatch => {
+//   if (course != null) {
+//     let courseToAdd = {
+//       key: courses.length || 0,
+//       label: course
+//     };
+//     courses = [...courses, courseToAdd];
+//   }
+//   dispatch({
+//     type: actions.UPDATE_COURSE_INPUTS,
+//     payload: courses
+//   });
+// };

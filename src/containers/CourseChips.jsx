@@ -4,22 +4,22 @@ import { withStyles } from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
 import Paper from '@material-ui/core/Paper';
 import { connect } from 'react-redux';
-import { updateCoursesActionCreator } from '../actionCreators';
+import { removeCourseActionCreator } from '../actionCreators';
 import chipStyles from './theme';
 
 class CourseChips extends Component {
-  handleDelete = data => () => {
-    const courses = [...this.props.chipData];
-    const chipToDelete = courses.indexOf(data);
-    courses.splice(chipToDelete, 1);
-    this.props.updateCourses(courses, null);
-  };
+  // handleDelete = data => () => {
+  //   const courses = [...this.props.chipData];
+  //   const chipToDelete = courses.indexOf(data);
+  //   courses.splice(chipToDelete, 1);
+  //   this.props.updateCourses(courses, null);
+  // };
 
   render() {
     const { classes } = this.props;
     return (
       <Paper className={classes.chipPaper}>
-        {this.props.chipData.map(data => {
+        {this.props.chipData.map((course, key) => {
           let icon = null;
           //   console.log("Chips"+data)
           // if (data.label === 'React') {
@@ -28,10 +28,10 @@ class CourseChips extends Component {
 
           return (
             <Chip
-              key={data.key}
+              key={key}
               icon={icon}
-              label={data.label}
-              onDelete={this.handleDelete(data)}
+              label={course}
+              onDelete={() => this.props.removeCourse(course)}
               className={classes.chip}
               color="primary"
             />
@@ -44,8 +44,8 @@ class CourseChips extends Component {
 
 CourseChips.propTypes = {
   classes: PropTypes.object.isRequired,
-  updateCourses: PropTypes.func.isRequired,
-  chipData: PropTypes.array
+  chipData: PropTypes.array,
+  removeCourse: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -53,8 +53,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateCourses: (courses, course) => {
-    dispatch(updateCoursesActionCreator(courses, course));
+  removeCourse: course => {
+    dispatch(removeCourseActionCreator(course));
   }
 });
 
