@@ -66,17 +66,11 @@ class FileUpload extends React.Component {
 
 FileUpload.propTypes = {
   classes: PropTypes.object.isRequired,
-  planner: PropTypes.func,
-  courses: PropTypes.array,
-  addCourse: PropTypes.func.isRequired,
   uploadFile: PropTypes.func.isRequired,
   uuid: PropTypes.string.isRequired
 };
 
 const mapDispatchToProps = dispatch => ({
-  addCourse: course => {
-    dispatch(addCourseActionCreator(course));
-  },
   uploadFile: (file, uuid) => {
     dispatch(fileUploadActionCreator(file, uuid));
   }
