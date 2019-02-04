@@ -15,6 +15,5 @@ export const fileUploadActionCreator = (file, uuid) => async dispatch => {
     dispatch({
       type: actions.FILE_UPLOAD_FAILED
     });
-    console.log('ERROR IN FILE UPLOAD' + error);
   }
 };

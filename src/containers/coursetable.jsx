@@ -54,7 +54,6 @@ class CourseTable extends Component {
           <MuiVirtualizedTable
             rowCount={this.rows.length}
             rowGetter={({ index }) => this.rows[index]}
-            onRowClick={event => console.log(event)}
             columns={[
               {
                 width: 200,
