@@ -12,7 +12,7 @@ import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import { loginActionCreator, registerActionCreator } from '../actionCreators';
 import { connect } from 'react-redux';
-import styles from './theme';
+import { loginStyles } from './theme';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
 import Snackbar from '@material-ui/core/Snackbar';
 
@@ -190,7 +190,7 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default withStyles(styles)(
+export default withStyles(loginStyles)(
   connect(
     mapStateToProps,
     mapDispatchToProps

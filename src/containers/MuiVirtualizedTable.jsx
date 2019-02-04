@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import TableCell from '@material-ui/core/TableCell';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import { AutoSizer, Column, SortDirection, Table } from 'react-virtualized';
-import styles from './theme';
+import { virtualizedTableStyles } from './theme';
 
 class MuiVirtualizedTable extends React.PureComponent {
   getRowClassName = ({ index }) => {
@@ -160,4 +160,4 @@ MuiVirtualizedTable.propTypes = {
   sort: PropTypes.any
 };
 
-export default withStyles(styles)(MuiVirtualizedTable);
+export default withStyles(virtualizedTableStyles)(MuiVirtualizedTable);

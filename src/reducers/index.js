@@ -106,6 +106,9 @@ const fileUploadReducer = (state = null, action) => {
   switch (action.type) {
   case actions.FILE_UPLOADING:
     return true;
+  case actions.FILE_UPLOAD_FAILED:
+  case actions.FILE_UPLOAD_SUCCEEDED:
+    return false;
   default:
     return state;
   }

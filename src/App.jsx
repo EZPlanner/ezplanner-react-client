@@ -18,7 +18,8 @@ import Spinner from './containers/spinner';
 const theme = createMuiTheme({
   typography: {
     useNextVariants: true
-  }
+  },
+  shadows: ['none']
 });
 
 class App extends Component {

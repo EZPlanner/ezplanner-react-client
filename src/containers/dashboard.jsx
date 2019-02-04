@@ -37,10 +37,19 @@ class Dashboard extends Component {
 
         <main className={this.classes.content}>
           <div className={this.classes.appBarSpacer} />
+
           <Typography variant="h4" gutterBottom component="h2">
             <div className={this.classes.root}>
               <Grid container spacing={24}>
                 <Grid item xs={12} lg={12} />
+                <Grid container justify="center">
+                  <div className={this.classes.introPaper}>
+                    <p>
+                      To start planning your future courses start typing courses
+                      you've taken already or upload your unofficial transcript!
+                    </p>
+                  </div>
+                </Grid>
                 <Grid item xs={12} lg={1} />
                 <Grid item xs={12} lg={5}>
                   <Search />
@@ -59,7 +68,7 @@ class Dashboard extends Component {
           </Typography>
           <Typography component="div" className={this.classes.chartContainer} />
           <Typography variant="h4" gutterBottom component="h2">
-            Courses
+            Possible Courses You May Take
           </Typography>
           <div className={this.classes.tableContainer}>
             <CourseTable />

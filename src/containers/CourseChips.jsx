@@ -5,7 +5,7 @@ import Chip from '@material-ui/core/Chip';
 import Paper from '@material-ui/core/Paper';
 import { connect } from 'react-redux';
 import { removeCourseActionCreator } from '../actionCreators';
-import chipStyles from './theme';
+import { chipStyles } from './theme';
 
 class CourseChips extends Component {
   render() {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import styles from './theme';
+import { appbarStyles } from './theme';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import ExitToApp from '@material-ui/icons/ExitToApp';
@@ -11,7 +11,7 @@ import { withStyles } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import classNames from 'classnames';
 import { logoutActionCreator } from '../actionCreators';
-
+import Disclaimer from './disclaimer';
 // TODO(atul): Change the following component's name so that it doesn't conflict with library
 class Appbar extends Component {
   constructor(props) {
@@ -45,6 +45,7 @@ class Appbar extends Component {
             >
               EZPlanner
             </Typography>
+            <Disclaimer />
             <Typography component="h1" variant="h6" color="inherit" noWrap>
               Logout
             </Typography>
@@ -71,7 +72,7 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default withStyles(styles)(
+export default withStyles(appbarStyles)(
   connect(
     null,
     mapDispatchToProps

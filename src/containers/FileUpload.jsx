@@ -4,13 +4,13 @@ import { withStyles } from '@material-ui/core/styles';
 import InputBase from '@material-ui/core/InputBase';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import Enter from '@material-ui/icons/KeyboardArrowRight';
 import { searchStyle } from './theme';
 import { connect } from 'react-redux';
 import { addCourseActionCreator } from '../actionCreators';
 import { fileUploadActionCreator } from '../actionCreators';
 import { Paper } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
+import Upload from '@material-ui/icons/CloudUpload';
+import Spinner from './FileUploadSpinner';
 
 // https://material-ui.com/demos/autocomplete/
 
@@ -49,7 +49,7 @@ class FileUpload extends React.Component {
           onClick={this.handleSubmit}
           component="label"
         >
-          <Enter />
+          <Upload />
           <input
             type="file"
             style={{ display: 'none' }}
@@ -59,6 +59,7 @@ class FileUpload extends React.Component {
         </IconButton>
 
         <Divider className={this.classes.searchDivider} />
+        {this.props.uploading ? <Spinner /> : null}
       </Paper>
     );
   }
@@ -67,7 +68,8 @@ class FileUpload extends React.Component {
 FileUpload.propTypes = {
   classes: PropTypes.object.isRequired,
   uploadFile: PropTypes.func.isRequired,
-  uuid: PropTypes.string.isRequired
+  uuid: PropTypes.string.isRequired,
+  uploading: PropTypes.bool.isRequired
 };
 
 const mapDispatchToProps = dispatch => ({
@@ -76,7 +78,8 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 const mapStateToProps = state => ({
-  uuid: (state.userInfo && state.userInfo.uid) || null
+  uuid: (state.userInfo && state.userInfo.uid) || null,
+  uploading: state.isUploading
 });
 
 export default withStyles(searchStyle)(

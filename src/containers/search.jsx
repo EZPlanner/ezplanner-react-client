@@ -46,6 +46,7 @@ class Search extends React.Component {
     return (
       <Paper className={this.classes.root} elevation={1}>
         <InputBase
+          autoComplete="off"
           className={this.classes.input}
           value={this.state.course || ''}
           placeholder="Ex. ECE224"

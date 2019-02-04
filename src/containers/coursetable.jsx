@@ -1,15 +1,12 @@
 /* eslint-disable no-console */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import { connect } from 'react-redux';
 import MuiVirtualizedTable from './MuiVirtualizedTable';
-import styles from './theme';
-const WrappedVirtualizedTable = withStyles(styles)(MuiVirtualizedTable);
 
 MuiVirtualizedTable.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object,
   columns: PropTypes.arrayOf(
     PropTypes.shape({
       cellContentRenderer: PropTypes.func,
@@ -53,8 +50,8 @@ class CourseTable extends Component {
     return (
       <div>
         {this.updateTable()}
-        <Paper style={{ height: 400, width: '100%' }}>
-          <WrappedVirtualizedTable
+        <Paper style={{ height: '76vh', width: '100%' }}>
+          <MuiVirtualizedTable
             rowCount={this.rows.length}
             rowGetter={({ index }) => this.rows[index]}
             onRowClick={event => console.log(event)}
@@ -96,9 +93,7 @@ const mapStateToProps = state => ({
   data: state.plannerCourses || null
 });
 
-export default withStyles(styles)(
-  connect(
-    mapStateToProps,
-    null
-  )(CourseTable)
-);
+export default connect(
+  mapStateToProps,
+  null
+)(CourseTable);
