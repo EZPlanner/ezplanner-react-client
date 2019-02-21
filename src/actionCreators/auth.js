@@ -13,6 +13,11 @@ export const loginActionCreator = (email, password) => async dispatch => {
     await firebase.auth().signInWithEmailAndPassword(email, password);
 
     const userInfo = firebase.auth().currentUser;
+    if (userInfo.emailVerified) {
+      dispatch({
+        type: actions.EMAIL_VERIFIED
+      });
+    }
 
     dispatch(loginSuccessfulActionCreator(userInfo));
   } catch (error) {
@@ -92,6 +97,12 @@ export const sendVerifyEmailActionCreator = () => async dispatch => {
 };
 
 export const verifiedEmailActionCreator = oobCode => async dispatch => {
+  if (oobCode === 'VERIFIED') {
+    dispatch({
+      type: actions.EMAIL_VERIFIED
+    });
+    return;
+  }
   try {
     await firebase.auth().applyActionCode(oobCode);
     dispatch({

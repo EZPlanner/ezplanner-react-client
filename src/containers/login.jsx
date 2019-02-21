@@ -58,8 +58,9 @@ class Login extends Component {
     let apiKey = qs.parse(this.props.location.search, {
       ignoreQueryPrefix: true
     }).apiKey;
-
-    if (mode && oobCode && apiKey) {
+    if (this.props.user && this.props.user.emailVerified) {
+      this.props.verifiedEmail('VERIFIED');
+    } else if (mode && oobCode && apiKey) {
       this.props.verifiedEmail(oobCode);
     }
   }
