@@ -7,6 +7,10 @@ export const routeActionEnhancer = store => next => action => {
   case actions.LOGIN_SUCCEEDED:
     next(action);
     localStorage.setItem('ezplanner.expectSignIn', '1');
+    // store.dispatch(push('/dashboard'));
+    break;
+  case actions.EMAIL_VERIFIED:
+    next(action);
     store.dispatch(push('/dashboard'));
     break;
   case actions.LOGOUT_SUCCEEDED:
