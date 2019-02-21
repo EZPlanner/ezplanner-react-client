@@ -59,8 +59,7 @@ export const registerActionCreator = (email, password) => async dispatch => {
   });
   try {
     await firebase.auth().createUserWithEmailAndPassword(email, password);
-    dispatch(verifyEmailActionCreator());
-    // await firebase.auth().currentUser.sendEmailVerification();
+    dispatch(sendVerifyEmailActionCreator());
     dispatch({
       type: actions.REGISTER_SUCCEEDED
     });
@@ -75,7 +74,7 @@ export const registerActionCreator = (email, password) => async dispatch => {
 /*
     Verifying email
 */
-export const verifyEmailActionCreator = () => async dispatch => {
+export const sendVerifyEmailActionCreator = () => async dispatch => {
   dispatch({
     type: actions.VERIFICATION_EMAIL_SENDING
   });
@@ -92,9 +91,16 @@ export const verifyEmailActionCreator = () => async dispatch => {
   }
 };
 
-export const verifiedEmailActionCreator = () => async dispatch => {
-  loginSuccessfulActionCreator(firebase.auth().currentUser);
-  dispatch({
-    type: actions.EMAIL_VERIFIED
-  });
+export const verifiedEmailActionCreator = oobCode => async dispatch => {
+  try {
+    await firebase.auth().applyActionCode(oobCode);
+    dispatch({
+      type: actions.EMAIL_VERIFIED
+    });
+  } catch (error) {
+    dispatch({
+      type: actions.VERIFICATION_EMAIL_FAILED,
+      payload: error.message || null
+    });
+  }
 };

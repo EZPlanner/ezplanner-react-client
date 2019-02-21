@@ -14,7 +14,7 @@ import {
   loginActionCreator,
   registerActionCreator,
   logoutActionCreator,
-  verifyEmailActionCreator,
+  sendVerifyEmailActionCreator,
   verifiedEmailActionCreator
 } from '../actionCreators';
 import { connect } from 'react-redux';
@@ -47,11 +47,20 @@ class Login extends Component {
         open: true
       });
     }
-    let verified = !!qs.parse(this.props.location.search, {
+    let mode = qs.parse(this.props.location.search, {
       ignoreQueryPrefix: true
     }).mode;
-    if (verified || (this.props.user && this.props.user.emailVerified)) {
-      this.props.verifiedEmail();
+
+    let oobCode = qs.parse(this.props.location.search, {
+      ignoreQueryPrefix: true
+    }).oobCode;
+
+    let apiKey = qs.parse(this.props.location.search, {
+      ignoreQueryPrefix: true
+    }).apiKey;
+
+    if (mode && oobCode && apiKey) {
+      this.props.verifiedEmail(oobCode);
     }
   }
 
@@ -157,7 +166,7 @@ class Login extends Component {
               variant="contained"
               color="primary"
               className={this.classes.submit}
-              onClick={() => this.props.verifyEmail()}
+              onClick={() => this.props.sendVerifyEmail()}
             >
               Resend Email
             </Button>
@@ -239,7 +248,7 @@ Login.propTypes = {
   message: PropTypes.string,
   login: PropTypes.func,
   logout: PropTypes.func,
-  verifyEmail: PropTypes.func,
+  sendVerifyEmail: PropTypes.func,
   verifiedEmail: PropTypes.func,
   register: PropTypes.func,
   user: PropTypes.object,
@@ -261,11 +270,11 @@ const mapDispatchToProps = dispatch => ({
   logout: () => {
     dispatch(logoutActionCreator());
   },
-  verifyEmail: () => {
-    dispatch(verifyEmailActionCreator());
+  sendVerifyEmail: () => {
+    dispatch(sendVerifyEmailActionCreator());
   },
-  verifiedEmail: () => {
-    dispatch(verifiedEmailActionCreator());
+  verifiedEmail: oobCode => {
+    dispatch(verifiedEmailActionCreator(oobCode));
   }
 });
 
