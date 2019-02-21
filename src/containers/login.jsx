@@ -50,7 +50,7 @@ class Login extends Component {
     let verified = !!qs.parse(this.props.location.search, {
       ignoreQueryPrefix: true
     }).mode;
-    if (verified) {
+    if (verified || (this.props.user && this.props.user.emailVerified)) {
       this.props.verifiedEmail();
     }
   }
