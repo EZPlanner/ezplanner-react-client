@@ -40,7 +40,7 @@ class FileUpload extends React.Component {
           id="file"
           disabled
         />
-
+        <Divider className={this.classes.searchDivider} />
         <IconButton
           color="primary"
           className={this.classes.iconButton}
@@ -58,7 +58,6 @@ class FileUpload extends React.Component {
           />
         </IconButton>
 
-        <Divider className={this.classes.searchDivider} />
         {this.props.uploading ? <Spinner /> : null}
       </Paper>
     );

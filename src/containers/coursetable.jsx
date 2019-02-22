@@ -10,6 +10,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import FileDownload from './FileDownload';
 
 MuiVirtualizedTable.propTypes = {
   classes: PropTypes.object,
@@ -92,6 +93,7 @@ class CourseTable extends Component {
                 onChange={this.filterHandler}
               />
               <Divider className={this.classes.searchDivider} />
+              <FileDownload />
             </Paper>
           </Grid>
         </Grid>

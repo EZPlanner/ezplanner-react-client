@@ -54,7 +54,7 @@ class Search extends React.Component {
           id="course"
           onKeyPress={this.handleKeyPress}
         />
-
+        <Divider className={this.classes.searchDivider} />
         <IconButton
           color="primary"
           className={this.classes.iconButton}
@@ -63,7 +63,6 @@ class Search extends React.Component {
         >
           <Enter />
         </IconButton>
-        <Divider className={this.classes.searchDivider} />
       </Paper>
     );
   }

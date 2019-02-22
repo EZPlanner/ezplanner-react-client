@@ -86,6 +86,11 @@ export const tableStyle = () => ({
     width: 1,
     height: 1,
     margin: 4
+  },
+  searchDivider: {
+    width: 1,
+    height: 28,
+    margin: 4
   }
 });
 
