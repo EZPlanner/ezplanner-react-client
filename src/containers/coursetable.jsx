@@ -132,8 +132,8 @@ class CourseTable extends Component {
 }
 
 CourseTable.propTypes = {
-  data: PropTypes.array,
-  classes: PropTypes.object
+  classes: PropTypes.object,
+  data: PropTypes.array
 };
 
 export default withStyles(tableStyle)(
