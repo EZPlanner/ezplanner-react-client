@@ -22,6 +22,8 @@ const messageReducer = (_, action) => {
     return action.payload || null;
   case actions.PLANNER_FAILED:
     return action.payload || null;
+  case actions.VERIFICATION_EMAIL_FAILED:
+    return action.payload || null;
   default:
     return null;
   }
