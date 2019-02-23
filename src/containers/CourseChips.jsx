@@ -42,7 +42,7 @@ CourseChips.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  chipData: state.coursesInput || null
+  chipData: state.inputCourses || null
 });
 
 const mapDispatchToProps = dispatch => ({

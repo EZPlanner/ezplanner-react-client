@@ -9,7 +9,7 @@ export const initialState = {
   userInfo: null,
   message: null,
   plannerCourses: null,
-  coursesInput: [],
+  inputCourses: [],
   isUploading: false
 };
 const messageReducer = (_, action) => {
@@ -86,7 +86,7 @@ const plannerCoursesReducer = (state = null, action) => {
     return state;
   }
 };
-const coursesInputReducer = (state = null, action) => {
+const inputCoursesReducer = (state = null, action) => {
   switch (action.type) {
   case actions.ADD_COURSE:
     if ((state || []).includes(action.payload)) return state;
@@ -123,6 +123,6 @@ export default history =>
     isRegistering: isRegisteringReducer,
     message: messageReducer,
     plannerCourses: plannerCoursesReducer,
-    coursesInput: coursesInputReducer,
+    inputCourses: inputCoursesReducer,
     isUploading: fileUploadReducer
   });
