@@ -26,7 +26,7 @@ class FileUpload extends React.Component {
     if (event.target.files.length > 0) {
       // Accessed .name from file
       this.setState({ fileName: event.target.files[0].name });
-      this.props.uploadFile(event.target.files[0], this.props.uuid);
+      this.props.uploadFile(event.target.files[0], this.props.uid);
     }
   };
 
@@ -67,17 +67,17 @@ class FileUpload extends React.Component {
 FileUpload.propTypes = {
   classes: PropTypes.object.isRequired,
   uploadFile: PropTypes.func.isRequired,
-  uuid: PropTypes.string.isRequired,
+  uid: PropTypes.string.isRequired,
   uploading: PropTypes.bool.isRequired
 };
 
 const mapDispatchToProps = dispatch => ({
-  uploadFile: (file, uuid) => {
-    dispatch(fileUploadActionCreator(file, uuid));
+  uploadFile: (file, uid) => {
+    dispatch(fileUploadActionCreator(file, uid));
   }
 });
 const mapStateToProps = state => ({
-  uuid: (state.userInfo && state.userInfo.uid) || null,
+  uid: (state.userInfo && state.userInfo.uid) || null,
   uploading: state.isUploading
 });
 
