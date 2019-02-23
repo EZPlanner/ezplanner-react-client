@@ -92,8 +92,7 @@ const mapStateToProps = state => ({
   state,
   userEmail: (state.userInfo && state.userInfo.email) || null,
   message: state.message || null,
-  courseInput: state.inputCourses || null,
-  data: state.plannerCourses || null
+  courseInput: state.inputCourses || null
 });
 
 const mapDispatchToProps = dispatch => ({
