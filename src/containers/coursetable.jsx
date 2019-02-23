@@ -54,20 +54,20 @@ class CourseTable extends Component {
   }
 
   updateTable() {
-    if (this.props.data != null) {
-      // TODO: Make this more efficient
+    const { data } = this.props;
+    if (data != null) {
       this.rows = [];
-      for (let i = 0; i < this.props.data.length; i += 1) {
+      data.forEach((item, index) => {
         this.rows.push({
-          id: i,
-          courseCode: this.props.data[i][0],
-          courseTittle: this.props.data[i][1],
-          link: this.props.data[i][2]
+          id: index,
+          courseCode: item[0],
+          courseTittle: item[1],
+          link: item[2]
         });
         if (this.state.keyword !== '') {
           this.rows = this.rows.filter(searchingFor(this.state.keyword));
         }
-      }
+      });
     }
   }
 
@@ -126,9 +126,6 @@ class CourseTable extends Component {
             ]}
           />
         </Paper>
-        {/* <IconButton>
-          <Download/>
-        </IconButton> */}
       </div>
     );
   }
@@ -139,13 +136,9 @@ CourseTable.propTypes = {
   classes: PropTypes.object
 };
 
-const mapStateToProps = state => ({
-  data: state.plannerCourses || null
-});
-
 export default withStyles(tableStyle)(
   connect(
-    mapStateToProps,
+    null,
     null
   )(CourseTable)
 );
