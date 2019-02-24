@@ -52,7 +52,9 @@ class CourseTable extends Component {
     this.rows = [];
     this.filterHandler = this.filterHandler.bind(this);
   }
-
+  componentDidMount() {
+    console.log(this.props.data);
+  }
   updateTable() {
     const { data } = this.props;
     if (data != null) {
