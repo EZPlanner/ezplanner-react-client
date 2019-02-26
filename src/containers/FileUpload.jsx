@@ -24,11 +24,22 @@ class FileUpload extends React.Component {
 
   handleUpload = event => {
     if (event.target.files.length > 0) {
-      // Accessed .name from file
-      this.setState({ fileName: event.target.files[0].name });
-      this.props.uploadFile(event.target.files[0], this.props.uid);
+      if (this.ValidateSize(event.target.files[0])) {
+        this.setState({ fileName: event.target.files[0].name });
+        this.props.uploadFile(event.target.files[0], this.props.uid);
+      }
     }
   };
+
+  ValidateSize(file) {
+    var FileSize = file.size / 1024 / 1024; // in MB
+    if (FileSize > 1) {
+      alert('File size exceeds 1 MB');
+      return false;
+    } else {
+      return true;
+    }
+  }
 
   render() {
     return (
