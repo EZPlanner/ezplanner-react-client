@@ -1,7 +1,10 @@
 import axios from 'axios';
 import qs from 'qs';
 import { prettifyCourseName } from '../utils/courseName';
-
+// PROD
+// https://api.ezplanner.mochahub.io/plan
+// DEV
+// http://api.ezplanner-sandbox.mochahub.io
 const api = axios.create({
   baseURL: 'https://ezplanner-flask-api.herokuapp.com/api',
   timeout: 10000,
@@ -27,5 +30,3 @@ export const plan = async (courses = []) =>
     ],
     responseType: 'json'
   });
-
-//re.split(r'(^[^\d]+)', string)[1:]

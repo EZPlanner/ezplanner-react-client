@@ -8,7 +8,6 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import { connect } from 'react-redux';
 import CourseTable from './coursetable';
-import Paper from '@material-ui/core/Paper';
 
 function TabContainer({ children, dir }) {
   return (
