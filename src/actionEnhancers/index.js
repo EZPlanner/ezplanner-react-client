@@ -7,6 +7,10 @@ export const routeActionEnhancer = store => next => action => {
   case actions.LOGIN_SUCCEEDED:
     next(action);
     localStorage.setItem('ezplanner.expectSignIn', '1');
+    // store.dispatch(push('/dashboard'));
+    break;
+  case actions.EMAIL_VERIFIED:
+    next(action);
     store.dispatch(push('/dashboard'));
     break;
   case actions.LOGOUT_SUCCEEDED:
@@ -17,11 +21,11 @@ export const routeActionEnhancer = store => next => action => {
   case actions.ADD_COURSE:
   case actions.REMOVE_COURSE:
     next(action);
-    store.dispatch(plannerActionCreator(store.getState().coursesInput));
+    store.dispatch(plannerActionCreator(store.getState().inputCourses));
     break;
   case actions.FILE_UPLOAD_SUCCEEDED:
     next(action);
-    store.dispatch(plannerActionCreator(store.getState().coursesInput));
+    store.dispatch(plannerActionCreator(store.getState().inputCourses));
     break;
   default:
     next(action);
