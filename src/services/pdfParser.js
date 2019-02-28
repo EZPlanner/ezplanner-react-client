@@ -1,6 +1,6 @@
 import axios from 'axios';
-export const uploadFile = async (file = null, uuid = null) => {
-  if (!file || !uuid) {
+export const uploadFile = async (file = null, uid = null) => {
+  if (!file || !uid) {
     return [];
   }
   let formData = new FormData();
@@ -12,7 +12,7 @@ export const uploadFile = async (file = null, uuid = null) => {
     headers: { 'Content-Type': 'application/json' },
     data: formData,
     params: {
-      uuid
+      uid
     }
   });
 };

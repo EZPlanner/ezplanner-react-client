@@ -6,7 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import AppBar from './appbar';
-import CourseTable from './coursetable';
 import Search from './search';
 import FileUpload from './FileUpload';
 import CourseChips from './CourseChips';
@@ -14,6 +13,7 @@ import { withRouter } from 'react-router-dom';
 import ReactGA from 'react-ga';
 import PropTypes from 'prop-types';
 import { push } from 'connected-react-router';
+import TableTabs from './TableTabs';
 ReactGA.initialize('UA-133316416-1');
 ReactGA.pageview(window.location.pathname + window.location.search);
 
@@ -69,8 +69,11 @@ class Dashboard extends Component {
             </div>
           </Typography>
           <Typography component="div" className={this.classes.chartContainer} />
-          <div className={this.classes.tableContainer}>
-            <CourseTable data={this.props.data} />
+
+          <div className={this.classes.tableTabs}>
+            {/* <CourseTable data={this.props.data} /> */}
+            <TableTabs />
+
           </div>
         </main>
       </div>

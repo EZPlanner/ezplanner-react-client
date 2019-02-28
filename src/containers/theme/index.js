@@ -45,6 +45,9 @@ const styles = theme => ({
   tableContainer: {
     height: 320
   },
+  tableTabs: {
+    width: '100%'
+  },
   h5: {
     marginBottom: theme.spacing.unit * 2
   }

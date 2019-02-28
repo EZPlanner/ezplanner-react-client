@@ -52,7 +52,6 @@ class CourseTable extends Component {
     this.rows = [];
     this.filterHandler = this.filterHandler.bind(this);
   }
-
   updateTable() {
     const { data } = this.props;
     if (data != null) {
@@ -132,8 +131,8 @@ class CourseTable extends Component {
 }
 
 CourseTable.propTypes = {
-  data: PropTypes.array,
-  classes: PropTypes.object
+  classes: PropTypes.object,
+  data: PropTypes.array
 };
 
 export default withStyles(tableStyle)(
