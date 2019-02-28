@@ -69,9 +69,11 @@ class Dashboard extends Component {
             </div>
           </Typography>
           <Typography component="div" className={this.classes.chartContainer} />
+
           <div className={this.classes.tableTabs}>
             {/* <CourseTable data={this.props.data} /> */}
             <TableTabs />
+
           </div>
         </main>
       </div>
