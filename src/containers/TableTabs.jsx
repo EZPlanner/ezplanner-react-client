@@ -67,10 +67,10 @@ class TableTabs extends React.Component {
           onChangeIndex={this.handleChangeIndex}
         >
           <TabContainer dir={theme.direction}>
-            <CourseTable data={this.props.data} />
+            <CourseTable data={this.props.data_eligible} />
           </TabContainer>
           <TabContainer dir={theme.direction}>
-            <CourseTable data={this.props.data} />
+            <CourseTable data={this.props.data_free} />
           </TabContainer>
           {/* <TabContainer dir={theme.direction}>Item Three</TabContainer> */}
         </SwipeableViews>
@@ -82,10 +82,12 @@ class TableTabs extends React.Component {
 TableTabs.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
-  data: PropTypes.array
+  data_eligible: PropTypes.array,
+  data_free: PropTypes.array
 };
 const mapStateToProps = state => ({
-  data: state.plannerCourses || null
+  data_eligible: state.plannerCourses || null,
+  data_free: state.plannerFreeCourses || null
 });
 export default withStyles(styles, { withTheme: true })(
   connect(

@@ -1,17 +1,21 @@
 import actions from '../actions';
-import { plan } from '../services/planner';
+import { plan_eligible, plan_free } from '../services/planner';
 
 export const plannerActionCreator = coursesTaken => async dispatch => {
   dispatch({
     type: actions.PLANNER_REQUESTED
   });
 
-  const { data: payload } = await plan(coursesTaken);
-
+  const { data: payload_eligible } = await plan_eligible(coursesTaken);
+  const { data: payload_free } = await plan_free(coursesTaken);
   try {
     dispatch({
       type: actions.PLANNER_SUCCEEDED,
-      payload
+      payload: payload_eligible
+    });
+    dispatch({
+      type: actions.PLANNER_NOREQS,
+      payload: payload_free
     });
   } catch (error) {
     dispatch({

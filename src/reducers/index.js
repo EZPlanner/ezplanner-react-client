@@ -9,6 +9,7 @@ export const initialState = {
   userInfo: null,
   message: null,
   plannerCourses: null,
+  plannerFreeCourses: null,
   inputCourses: [],
   isUploading: false
 };
@@ -88,6 +89,16 @@ const plannerCoursesReducer = (state = null, action) => {
     return state;
   }
 };
+const plannerFreeCoursesReducer = (state = null, action) => {
+  switch (action.type) {
+  case actions.PLANNER_NOREQS:
+    return action.payload;
+  case actions.PLANNER_NOREQS_FAILED:
+    return null;
+  default:
+    return state;
+  }
+};
 const inputCoursesReducer = (state = null, action) => {
   switch (action.type) {
   case actions.ADD_COURSE:
@@ -126,5 +137,6 @@ export default history =>
     message: messageReducer,
     plannerCourses: plannerCoursesReducer,
     inputCourses: inputCoursesReducer,
-    isUploading: fileUploadReducer
+    isUploading: fileUploadReducer,
+    plannerFreeCourses: plannerFreeCoursesReducer
   });

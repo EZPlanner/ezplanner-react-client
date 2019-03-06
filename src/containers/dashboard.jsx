@@ -71,9 +71,7 @@ class Dashboard extends Component {
           <Typography component="div" className={this.classes.chartContainer} />
 
           <div className={this.classes.tableTabs}>
-            {/* <CourseTable data={this.props.data} /> */}
             <TableTabs />
-
           </div>
         </main>
       </div>
@@ -84,7 +82,6 @@ class Dashboard extends Component {
 Dashboard.propTypes = {
   classes: PropTypes.object,
   courseInput: PropTypes.array,
-  data: PropTypes.array,
   message: PropTypes.string,
   userEmail: PropTypes.string,
   planner: PropTypes.func,
@@ -95,8 +92,7 @@ const mapStateToProps = state => ({
   state,
   userEmail: (state.userInfo && state.userInfo.email) || null,
   message: state.message || null,
-  courseInput: state.inputCourses || null,
-  data: state.plannerCourses || null
+  courseInput: state.inputCourses || null
 });
 
 const mapDispatchToProps = dispatch => ({
