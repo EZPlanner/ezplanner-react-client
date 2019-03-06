@@ -6,10 +6,12 @@ export const fileUploadActionCreator = (file, uid) => async dispatch => {
     type: actions.FILE_UPLOADING
   });
   try {
-    const response = await uploadFile(file, uid);
+    let response = await uploadFile(file, uid);
+    //TODO [Zahin] change the line below...
+    response = response.data.data;
     dispatch({
       type: actions.FILE_UPLOAD_SUCCEEDED,
-      payload: await response.data
+      payload: await response
     });
   } catch (error) {
     dispatch({

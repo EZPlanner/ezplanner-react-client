@@ -56,7 +56,6 @@ class CourseTable extends Component {
     const { data } = this.props;
     if (data != null) {
       this.rows = [];
-      console.log(data);
       data.forEach((item, index) => {
         this.rows.push({
           id: index,

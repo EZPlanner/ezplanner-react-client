@@ -7,9 +7,8 @@ export const uploadFile = async (file = null, uid = null) => {
   formData.append('file', file);
 
   return axios({
-    url: 'https://ezplanner-flask-api.herokuapp.com/api/parser',
+    url: `http://api.ezplanner-sandbox.mochahub.io/transcript/courses/${uid}`,
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
     data: formData,
     params: {
       uid
