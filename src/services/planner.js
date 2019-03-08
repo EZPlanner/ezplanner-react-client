@@ -6,7 +6,7 @@ import { prettifyCourseName } from '../utils/courseName';
 // DEV
 // http://api.ezplanner-sandbox.mochahub.io
 const api = axios.create({
-  baseURL: 'http://api.ezplanner-sandbox.mochahub.io',
+  baseURL: 'https://api.ezplanner-sandbox.mochahub.io',
   timeout: 10000,
   headers: { 'Content-Type': 'application/json' }
 });

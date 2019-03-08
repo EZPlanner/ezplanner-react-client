@@ -7,7 +7,7 @@ export const uploadFile = async (file = null, uid = null) => {
   formData.append('file', file);
 
   return axios({
-    url: `http://api.ezplanner-sandbox.mochahub.io/transcript/courses/${uid}`,
+    url: `https://api.ezplanner-sandbox.mochahub.io/transcript/courses/${uid}`,
     method: 'POST',
     data: formData,
     params: {
