@@ -81,16 +81,16 @@ class Disclaimer extends React.Component {
           <DialogContent>
             <Typography gutterBottom>
               EZPlanner does not retain any uploaded transcripts; all uploaded
-              transcripts are deleted after parsing. The results of EZPlanner
+              transcripts are deleted after parsing. Some results of EZPlanner
               are known to be missing; this is due to stale data from the
               uWaterloo Open Data API. We have future plans to integrate our own
-              rule engine to provide more accurate data. EZPlanner calculates
-              courses you are eligible for based on the course pre-requisites,
-              not the actual requirement (for exmaple we do not account for GPA,
-              program specific requirements, etc). This may change with future
-              updates. With all that said, EZPlanner should in no way be a
-              primary source of information; take everything offered here with a
-              grain of salt. You can contact us at ezplanner@mochahub.io
+              parser to provide more accurate data. EZPlanner calculates courses
+              you are eligible for based on the course pre-requisites, not the
+              actual requirement (for exmaple we do not account for GPA, program
+              specific requirements, etc). This may change with future updates.
+              With all that said, EZPlanner should in no way be a primary source
+              of information; take everything offered here with a grain of salt.
+              You can contact us at ezplanner@mochahub.io
             </Typography>
           </DialogContent>
         </Dialog>
