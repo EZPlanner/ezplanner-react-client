@@ -1,0 +1,193 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.5
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-AXIOS-174505:
+    - axios:
+        patched: '2019-05-05T23:26:32.742Z'
+  SNYK-JS-LODASH-450202:
+    - react-scripts > babel-jest > @types/babel__core > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > babel-jest > @types/babel__core > @types/babel__generator > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-snapshot > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > jest-config > jest-jasmine2 > @babel/traverse > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-resolve-dependencies > jest-snapshot > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runtime > jest-snapshot > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > jest-config > jest-jasmine2 > jest-snapshot > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-jest > @types/babel__core > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > jest-config > jest-jasmine2 > @babel/traverse > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-config > jest-jasmine2 > @babel/traverse > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runner > jest-jasmine2 > @babel/traverse > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-config > jest-jasmine2 > @babel/traverse > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > jest-config > jest-jasmine2 > @babel/traverse > @babel/generator > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > jest-config > jest-jasmine2 > jest-runtime > jest-snapshot > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > jest-config > @jest/test-sequencer > jest-runtime > jest-snapshot > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runtime > jest-config > jest-jasmine2 > @babel/traverse > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > @jest/reporters > jest-runtime > jest-snapshot > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runner > jest-jasmine2 > @babel/traverse > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runner > jest-jasmine2 > jest-snapshot > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-config > babel-jest > @types/babel__core > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runner > jest-config > jest-jasmine2 > @babel/traverse > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-config > jest-jasmine2 > jest-snapshot > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > jest-config > babel-jest > @types/babel__core > @types/babel__generator > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > jest-config > @jest/test-sequencer > jest-runner > jest-jasmine2 > @babel/traverse > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runner > jest-runtime > jest-snapshot > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-config > jest-jasmine2 > @babel/traverse > @babel/helper-function-name > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-config > jest-jasmine2 > jest-runtime > jest-snapshot > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runner > jest-jasmine2 > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > jest-config > @jest/test-sequencer > jest-runner > jest-jasmine2 > @babel/traverse > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > jest-config > jest-jasmine2 > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > jest-config > @jest/test-sequencer > jest-runner > jest-jasmine2 > jest-snapshot > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runner > jest-config > babel-jest > @types/babel__core > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runner > jest-config > jest-jasmine2 > jest-snapshot > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runner > jest-config > jest-jasmine2 > @babel/traverse > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-config > babel-jest > @types/babel__core > @types/babel__template > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runtime > jest-config > babel-jest > @types/babel__core > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runner > jest-runtime > jest-config > jest-jasmine2 > @babel/traverse > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runtime > jest-config > jest-jasmine2 > jest-snapshot > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-config > @jest/test-sequencer > jest-runner > jest-jasmine2 > @babel/traverse > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runtime > jest-config > jest-jasmine2 > @babel/traverse > @babel/generator > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runner > jest-jasmine2 > jest-runtime > jest-snapshot > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-config > @jest/test-sequencer > jest-runtime > jest-snapshot > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > @jest/reporters > jest-runtime > jest-config > jest-jasmine2 > @babel/traverse > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > jest-config > @jest/test-sequencer > jest-runner > jest-runtime > jest-snapshot > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > jest-config > @jest/test-sequencer > jest-runner > jest-jasmine2 > jest-runtime > jest-snapshot > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runner > jest-jasmine2 > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runner > jest-config > babel-jest > @types/babel__core > @types/babel__template > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runtime > jest-config > jest-jasmine2 > @babel/traverse > @babel/helper-function-name > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runtime > jest-config > babel-jest > @types/babel__core > @types/babel__generator > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runner > jest-runtime > jest-config > jest-jasmine2 > @babel/traverse > @babel/generator > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > @jest/reporters > jest-runtime > jest-config > jest-jasmine2 > @babel/traverse > @babel/generator > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runner > jest-config > jest-jasmine2 > @babel/traverse > @babel/helper-function-name > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > jest-config > @jest/test-sequencer > jest-runner > jest-jasmine2 > @babel/traverse > @babel/helper-function-name > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > @jest/reporters > jest-runtime > jest-config > babel-jest > @types/babel__core > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runner > jest-runtime > jest-config > babel-jest > @types/babel__core > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runner > jest-config > jest-jasmine2 > jest-runtime > jest-snapshot > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-config > @jest/test-sequencer > jest-runner > jest-jasmine2 > @babel/traverse > @babel/generator > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-config > @jest/test-sequencer > jest-runner > jest-runtime > jest-snapshot > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runtime > jest-config > @jest/test-sequencer > jest-runner > jest-jasmine2 > @babel/traverse > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runner > jest-config > @jest/test-sequencer > jest-runtime > jest-snapshot > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > @jest/reporters > jest-runtime > jest-config > jest-jasmine2 > jest-snapshot > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runner > jest-runtime > jest-config > jest-jasmine2 > jest-snapshot > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-config > jest-jasmine2 > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-config > @jest/test-sequencer > jest-runner > jest-jasmine2 > jest-snapshot > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > @jest/reporters > jest-runtime > jest-config > jest-jasmine2 > @babel/traverse > @babel/generator > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runner > jest-runtime > jest-config > jest-jasmine2 > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runner > jest-jasmine2 > jest-runtime > jest-config > babel-jest > @types/babel__core > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > @jest/reporters > jest-runtime > jest-config > babel-jest > @types/babel__core > @types/babel__generator > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runner > jest-runtime > jest-config > babel-jest > @types/babel__core > @types/babel__generator > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > @jest/reporters > jest-runtime > jest-config > @jest/test-sequencer > jest-runner > jest-jasmine2 > @babel/traverse > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runtime > jest-config > @jest/test-sequencer > jest-runner > jest-jasmine2 > jest-snapshot > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > jest-config > @jest/test-sequencer > jest-runner > jest-jasmine2 > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-config > @jest/test-sequencer > jest-runner > jest-jasmine2 > @babel/traverse > @babel/generator > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runner > jest-config > jest-jasmine2 > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-config > @jest/test-sequencer > jest-runner > jest-jasmine2 > jest-runtime > jest-snapshot > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runtime > jest-config > @jest/test-sequencer > jest-runner > jest-jasmine2 > @babel/traverse > @babel/generator > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runtime > jest-config > jest-jasmine2 > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > @jest/reporters > jest-runtime > jest-config > jest-jasmine2 > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runner > jest-runtime > jest-config > jest-jasmine2 > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runtime > jest-config > @jest/test-sequencer > jest-runner > jest-jasmine2 > @babel/traverse > @babel/helper-function-name > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-config > @jest/test-sequencer > jest-runner > jest-jasmine2 > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runner > jest-jasmine2 > jest-runtime > jest-config > babel-jest > @types/babel__core > @types/babel__template > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > @jest/reporters > jest-runtime > jest-config > @jest/test-sequencer > jest-runner > jest-jasmine2 > @babel/traverse > @babel/generator > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > @jest/reporters > jest-runtime > jest-config > @jest/test-sequencer > jest-runner > jest-jasmine2 > jest-snapshot > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > @jest/reporters > jest-runtime > jest-config > @jest/test-sequencer > jest-runner > jest-jasmine2 > @babel/traverse > @babel/helper-function-name > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > jest-runtime > jest-config > @jest/test-sequencer > jest-runner > jest-jasmine2 > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - react-scripts > jest > jest-cli > @jest/core > @jest/reporters > jest-runtime > jest-config > @jest/test-sequencer > jest-runner > jest-jasmine2 > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2019-12-15T00:36:55.596Z'
+    - snyk > inquirer > lodash:
+        patched: '2019-12-15T23:29:00.758Z'
+    - snyk > @snyk/dep-graph > lodash:
+        patched: '2019-12-15T23:29:00.758Z'
+    - snyk > snyk-nuget-plugin > dotnet-deps-parser > lodash:
+        patched: '2019-12-15T23:29:00.758Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/dep-graph > lodash:
+        patched: '2019-12-15T23:29:00.758Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/cocoapods-lockfile-parser > @snyk/dep-graph > lodash:
+        patched: '2019-12-15T23:29:00.758Z'
